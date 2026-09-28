@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bg_app" />
+
+    <ImageView
+        android:id="@+id/btnSettings"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_52"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:contentDescription="@string/settings"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_setting"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgAppName"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_56"
+        android:contentDescription="@null"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        android:src="@drawable/img_splash_logo"
+        app:layout_constraintDimensionRatio="360:128"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnSettings" />
+
+    <ScrollView
+        android:id="@+id/scvMain"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0"
+        android:layout_marginTop="@dimen/dp_28"
+        android:fillViewport="true"
+        android:scrollbars="none"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imgAppName"
+
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/dp_68"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/gl"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".5" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btnPlay"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/dp_28"
+                android:layout_marginTop="@dimen/dp_0"
+                android:layout_marginEnd="@dimen/dp_4"
+                android:background="@drawable/i_h1"
+                app:layout_constraintDimensionRatio="148:141"
+                app:layout_constraintEnd_toEndOf="@id/gl"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <com.therian.oc.aaabb.core.custom.text.DoubleStrokeTextView
+                    android:id="@+id/tv1"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:includeFontPadding="false"
+                    android:text="@string/character_maker_"
+                    android:textColor="@color/app"
+                    android:maxLines="2"
+                    android:fontFamily="@font/berlin_sans_fb_demi_bold"
+                    android:gravity="center"
+                    app:autoSizeMaxTextSize="@dimen/sp_40"
+                    app:autoSizeMinTextSize="@dimen/sp_14"
+                    app:autoSizeStepGranularity="1sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.31081081081"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias=".94"
+                    app:layout_constraintWidth_percent="0.60135135135"
+                    app:outerStrokeColor="@color/app1"
+                    app:outerStrokeWidth="@dimen/dp_2" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btnCosPlay"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/dp_4"
+                android:layout_marginEnd="@dimen/dp_28"
+                android:background="@drawable/i_h2"
+                app:layout_constraintDimensionRatio="148:141"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/gl"
+                app:layout_constraintTop_toTopOf="@id/btnPlay">
+
+
+                <com.therian.oc.aaabb.core.custom.text.DoubleStrokeTextView
+                    android:id="@+id/tv2"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:includeFontPadding="false"
+                    android:text="@string/challenge_character"
+                    android:maxLines="2"
+                    android:fontFamily="@font/berlin_sans_fb_demi_bold"
+                    android:gravity="center"
+                    app:autoSizeMaxTextSize="@dimen/sp_40"
+                    app:autoSizeMinTextSize="@dimen/sp_14"
+                    app:autoSizeStepGranularity="1sp"
+                    app:autoSizeTextType="uniform"
+                    android:textColor="@color/app"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.31081081081"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias=".94"
+                    app:layout_constraintWidth_percent="0.60135135135"
+                    app:outerStrokeColor="@color/app1"
+                    app:outerStrokeWidth="@dimen/dp_2" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btnRandom"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/dp_28"
+                android:layout_marginTop="@dimen/dp_19"
+                android:layout_marginEnd="@dimen/dp_4"
+                android:background="@drawable/i_h3"
+                app:layout_constraintDimensionRatio="148:141"
+                app:layout_constraintEnd_toEndOf="@id/gl"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/btnPlay">
+
+
+                <com.therian.oc.aaabb.core.custom.text.DoubleStrokeTextView
+                    android:id="@+id/tv3"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+
+                    android:includeFontPadding="false"
+                    android:text="@string/character_random"
+                    android:textColor="@color/app"
+                    android:maxLines="2"
+                    android:fontFamily="@font/berlin_sans_fb_demi_bold"
+                    android:gravity="center"
+                    app:autoSizeMaxTextSize="@dimen/sp_40"
+                    app:autoSizeMinTextSize="@dimen/sp_14"
+                    app:autoSizeStepGranularity="1sp"
+                    app:autoSizeTextType="uniform"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.31081081081"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias=".94"
+                    app:layout_constraintWidth_percent="0.60135135135"
+                    app:outerStrokeColor="@color/app1"
+                    app:outerStrokeWidth="@dimen/dp_2" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btnMyCreation"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="0dp"
+                android:layout_marginStart="@dimen/dp_4"
+                android:layout_marginEnd="@dimen/dp_28"
+                android:background="@drawable/i_h4"
+                app:layout_constraintDimensionRatio="148:141"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/gl"
+                app:layout_constraintTop_toTopOf="@id/btnRandom">
+
+
+                <com.therian.oc.aaabb.core.custom.text.DoubleStrokeTextView
+                    android:id="@+id/tv4"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:includeFontPadding="false"
+                    android:text="@string/my_creation"
+                    android:maxLines="2"
+                    android:fontFamily="@font/berlin_sans_fb_demi_bold"
+                    android:gravity="center"
+                    app:autoSizeMaxTextSize="@dimen/sp_40"
+                    app:autoSizeMinTextSize="@dimen/sp_14"
+                    app:autoSizeStepGranularity="1sp"
+                    app:autoSizeTextType="uniform"
+                    android:textColor="@color/app"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.31081081081"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias=".94"
+                    app:layout_constraintWidth_percent="0.60135135135"
+                    app:outerStrokeColor="@color/app1"
+                    app:outerStrokeWidth="@dimen/dp_2" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/flNativeCollab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
