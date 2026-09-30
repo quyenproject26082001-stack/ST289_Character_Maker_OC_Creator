@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.therian.oc.aaabb.core.custom.text.DoubleStrokeTextView
+    <com.character.ocmaker.creator.core.custom.text.DoubleStrokeTextView
         android:id="@+id/tvContent"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"

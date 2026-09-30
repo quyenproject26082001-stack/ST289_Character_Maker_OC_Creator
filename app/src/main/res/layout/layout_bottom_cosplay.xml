@@ -43,6 +43,7 @@
             android:fontFamily="@font/berlin_sans_fb_demi_bold"
             android:gravity="center"
             android:text="@string/try_again"
+            android:layout_marginHorizontal="@dimen/dp_10"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name" translatable="false">ST289_Character_Maker_OC_Creator</string>
+    <string name="app_name" translatable="false">Character Maker: OC Creator</string>
 
 
     <string name="go_to_setting_message">L’application a besoin de cette autorisation</string>
@@ -58,7 +58,7 @@
     <string name="ok">OK</string>
     <string name="wait_a_minute">Veuillez patienter...</string>
     <string name="reset">Réinitialiser</string>
-    <string name="download_success">Téléchargement réussi dans l’album ST289_Character_Maker_OC_Creator</string>
+    <string name="download_success">Téléchargement réussi dans l’album Character Maker: OC Creator</string>
     <string name="please_check_your_internet">Veuillez vérifier votre connexion Internet</string>
     <string name="please_select_an_image">Veuillez sélectionner une image</string>
     <string name="error">Erreur</string>
@@ -100,7 +100,7 @@
     <string name="hello_world">Saisissez votre contenu...</string>
     <string name="loading">Chargement...</string>
     <string name="internet_required_for_more_characters">Une connexion Internet est requise pour plus de personnages</string>
-    <string name="do_you_want_to_exit">Pas encore enregistré, voulez-vous \nquitter ?</string>
+    <string name="do_you_want_to_exit">Pas encore enregistré, voulez-vous quitter ?</string>
     <string name="random">\u00A0\u00A0Aléatoire\u00A0\u00A0</string>
     <string name="back">RETOUR</string>
     <string name="hello_world_hint">Saisissez votre contenu...</string>

@@ -41,7 +41,6 @@
                     android:fontFamily="@font/berlin_sans_fb_demi_bold"
                     android:gravity="center"
                     android:paddingVertical="@dimen/dp_5"
-                    android:paddingHorizontal="@dimen/dp_30"
                     tools:text="aaaaaaaaaaaaaaaaaaaaaaaaa"
                     android:text="@string/loading"
                     android:layout_marginBottom="@dimen/dp_minus_25"

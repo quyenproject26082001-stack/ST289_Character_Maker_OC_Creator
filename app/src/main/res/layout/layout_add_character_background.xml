@@ -15,6 +15,7 @@
         android:id="@+id/sectionTab"
         android:layout_width="@dimen/dp_324"
         android:layout_height="@dimen/dp_44"
+        android:layout_marginTop="@dimen/dp_2"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginHorizontal="@dimen/dp_13"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,7 +38,7 @@
 
 
             <!--                tvBackgroundImage-->
-            <com.therian.oc.aaabb.core.custom.text.DoubleStrokeTextView
+            <com.character.ocmaker.creator.core.custom.text.DoubleStrokeTextView
                 android:id="@+id/tvBackgroundImage"
                 style="@style/single_marquee"
                 android:layout_width="match_parent"
@@ -66,7 +67,7 @@
 
 
             <!--                tvBackgroundColor-->
-            <com.therian.oc.aaabb.core.custom.text.DoubleStrokeTextView
+            <com.character.ocmaker.creator.core.custom.text.DoubleStrokeTextView
                 android:id="@+id/tvBackgroundColor"
                 style="@style/single_marquee"
                 android:layout_width="match_parent"

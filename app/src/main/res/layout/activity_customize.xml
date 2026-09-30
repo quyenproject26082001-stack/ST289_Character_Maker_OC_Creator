@@ -200,7 +200,7 @@
         app:layout_constraintTop_toBottomOf="@id/glHorizontal"
         tools:visibility="visible">
 
-        <com.therian.oc.aaabb.core.custom.text.DoubleStrokeTextView
+        <com.character.ocmaker.creator.core.custom.text.DoubleStrokeTextView
             android:id="@+id/btnResetMove"
             android:layout_width="@dimen/dp_70"
             android:layout_height="@dimen/dp_40"
@@ -210,8 +210,13 @@
             android:background="@drawable/bg_btn_move"
             android:fontFamily="@font/berlin_sans_fb_demi_bold"
             android:gravity="center"
-            android:singleLine="true"
             android:text="@string/reset"
+            android:maxLines="1"
+            android:ellipsize="none"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="@dimen/sp_10"
+            android:autoSizeMaxTextSize="@dimen/sp_16"
+            android:autoSizeStepGranularity="@dimen/sp_0_5"
             android:textColor="@color/app2"
             android:textSize="@dimen/sp_16"
             app:layout_constraintStart_toStartOf="parent"
@@ -244,7 +249,7 @@
             app:layout_constraintTop_toBottomOf="@id/rotateToRight" />
 
 
-        <com.therian.oc.aaabb.core.custom.text.DoubleStrokeTextView
+        <com.character.ocmaker.creator.core.custom.text.DoubleStrokeTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_12"
@@ -301,8 +306,7 @@
             android:id="@+id/btnMoveUp"
             android:layout_width="@dimen/dp_50"
             android:layout_height="@dimen/dp_50"
-            android:background="@drawable/ic_arrow_move"
-            android:rotation="90"
+            android:background="@drawable/ic_arrow_move_1"
             app:layout_constraintBottom_toTopOf="@id/btnMoveLeft"
             app:layout_constraintStart_toEndOf="@id/btnMoveLeft" />
 
@@ -310,8 +314,7 @@
             android:id="@+id/btnMoveDown"
             android:layout_width="@dimen/dp_50"
             android:layout_height="@dimen/dp_50"
-            android:background="@drawable/ic_arrow_move"
-            android:rotation="-90"
+            android:background="@drawable/ic_arrow_move_2"
             app:layout_constraintStart_toEndOf="@id/btnMoveLeft"
             app:layout_constraintTop_toBottomOf="@id/btnMoveLeft" />
 
@@ -329,8 +332,7 @@
             android:id="@+id/btnMoveRight"
             android:layout_width="@dimen/dp_50"
             android:layout_height="@dimen/dp_50"
-            android:background="@drawable/ic_arrow_move"
-            android:rotation="180"
+            android:background="@drawable/ic_arrow_move_3"
 
             app:layout_constraintStart_toEndOf="@id/btnMoveUp"
             app:layout_constraintTop_toBottomOf="@id/btnMoveUp" />
@@ -386,31 +388,42 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="@dimen/dp_0"
             android:gravity="start"
+            android:translationX="-2dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="@+id/btnColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/btnColor"
             app:layout_constraintTop_toTopOf="@+id/btnColor">
 
-            <RelativeLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/relativeLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/dp_42"
                 android:orientation="vertical"
                 app:cardBackgroundColor="#E4E0E0"
                 app:cardCornerRadius="@dimen/dp_30"
-                android:background="@drawable/bg_color_list_shape1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:strokeColor="#38306B"
                 app:strokeWidth="@dimen/dp_2">
 
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:background="@drawable/bg_color_list_shape1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/relative"
                     android:layout_marginHorizontal="@dimen/dp_10"
                     android:layout_width="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:paddingHorizontal="@dimen/dp_10"
                     android:layout_height="match_parent">
 
                     <androidx.recyclerview.widget.RecyclerView
@@ -433,7 +446,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-            </RelativeLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

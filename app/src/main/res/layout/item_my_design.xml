@@ -43,6 +43,18 @@
                 android:scaleType="centerCrop"
                 tools:src="@color/red_BA" />
 
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/sflShimmer"
+                style="@style/ImageLoadingShimmer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/image_shimmer_base" />
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
             <FrameLayout
                 android:id="@+id/frameCover"
                 android:layout_width="match_parent"

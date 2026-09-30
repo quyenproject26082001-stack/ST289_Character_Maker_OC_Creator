@@ -97,7 +97,7 @@
                 app:layout_constraintEnd_toStartOf="@id/space"
                 android:layout_weight="1">
 
-                <com.therian.oc.aaabb.core.custom.text.OuterStrokeTextView
+                <com.character.ocmaker.creator.core.custom.text.OuterStrokeTextView
                     android:id="@+id/tvAvatar"
                     style="@style/single_marquee"
                     android:layout_width="0dp"
@@ -141,7 +141,7 @@
                 android:layout_height="match_parent"
                >
 
-                <com.therian.oc.aaabb.core.custom.text.OuterStrokeTextView
+                <com.character.ocmaker.creator.core.custom.text.OuterStrokeTextView
                     android:id="@+id/tvMyDesign"
                     style="@style/single_marquee"
                     android:layout_width="0dp"

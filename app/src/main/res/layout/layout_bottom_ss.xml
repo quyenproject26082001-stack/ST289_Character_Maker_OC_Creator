@@ -149,7 +149,7 @@ app:layout_constraintEnd_toEndOf="parent"
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.therian.oc.aaabb.core.custom.layout.InstagramGradientLayout
+    <com.character.ocmaker.creator.core.custom.layout.InstagramGradientLayout
         android:id="@+id/btnInstagram"
         android:layout_width="@dimen/dp_0"
         android:layout_height="@dimen/dp_44"
@@ -191,6 +191,6 @@ app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
-    </com.therian.oc.aaabb.core.custom.layout.InstagramGradientLayout>
+    </com.character.ocmaker.creator.core.custom.layout.InstagramGradientLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

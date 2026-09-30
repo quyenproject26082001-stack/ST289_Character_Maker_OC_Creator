@@ -86,7 +86,7 @@
                 android:scaleType="centerCrop" />
 
             <!--        drawView-->
-            <com.therian.oc.aaabb.core.custom.drawview.DrawView
+            <com.character.ocmaker.creator.core.custom.drawview.DrawView
                 android:id="@+id/drawView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -142,7 +142,7 @@
 
         <include
             android:id="@+id/textTab"
-            tools:visibility="visible"
+            tools:visibility="gone"
             layout="@layout/layout_add_character_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

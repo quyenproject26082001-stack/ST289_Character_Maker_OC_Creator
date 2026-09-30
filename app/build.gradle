@@ -89,11 +89,11 @@ def realAds = [
 ]
 
 android {
-    namespace 'com.therian.oc.aaabb'
+    namespace 'com.character.ocmaker.creator'
     compileSdk 36
 
     defaultConfig {
-        applicationId "com.therian.oc.aaabb"
+        applicationId "com.character.ocmaker.creator"
         minSdk 24
         targetSdk 36
         versionCode 1

@@ -81,6 +81,6 @@
 -keep class com.yalantis.ucrop** { *; }
 -keep interface com.yalantis.ucrop** { *; }
 
--keep class com.therian.oc.aaabb.ui.splash.SplashActivity.** {*; }
--keep class com.therian.oc.aaabb.data.** {*; }
+-keep class com.character.ocmaker.creator.ui.splash.SplashActivity.** {*; }
+-keep class com.character.ocmaker.creator.data.** {*; }
 -keep public class com.google.android.gms.** { public protected *; }

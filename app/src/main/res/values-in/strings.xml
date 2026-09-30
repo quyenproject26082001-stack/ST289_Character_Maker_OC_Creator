@@ -1,6 +1,6 @@
 <resources>
 
-    <string name="app_name" translatable="false">ST289_Character_Maker_OC_Creator</string>
+    <string name="app_name" translatable="false">Character Maker: OC Creator</string>
 
 
     <string name="go_to_setting_message">Aplikasi memerlukan izin ini</string>
@@ -58,7 +58,7 @@
     <string name="ok">Oke</string>
     <string name="wait_a_minute">Mohon tunggu...</string>
     <string name="reset">Atur ulang</string>
-    <string name="download_success">Berhasil diunduh ke album ST289_Character_Maker_OC_Creator</string>
+    <string name="download_success">Berhasil diunduh ke album Character Maker: OC Creator</string>
     <string name="please_check_your_internet">Silakan periksa koneksi internet Anda</string>
     <string name="please_select_an_image">Silakan pilih gambar</string>
     <string name="error">Kesalahan</string>
@@ -100,7 +100,7 @@
     <string name="hello_world">Ketik konten Anda...</string>
     <string name="loading">Memuat...</string>
     <string name="internet_required_for_more_characters">Diperlukan internet untuk karakter lainnya</string>
-    <string name="do_you_want_to_exit">Belum disimpan, apakah Anda ingin \nkeluar?</string>
+    <string name="do_you_want_to_exit">Belum disimpan, apakah Anda ingin keluar?</string>
     <string name="random">\u00A0\u00A0Acak\u00A0\u00A0</string>
     <string name="back">KEMBALI</string>
     <string name="hello_world_hint">Ketik konten Anda...</string>

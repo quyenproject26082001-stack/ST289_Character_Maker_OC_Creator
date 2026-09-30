@@ -1,11 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.character.ocmaker.creator.core.custom.layout.ActionBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     tools:background="@color/app"
     android:layout_height="@dimen/dp_105"
     android:background="@color/transparent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/titleStartInset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="@dimen/dp_20" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/titleEndInset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="@dimen/dp_20" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/titleStartBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:barrierAllowsGoneWidgets="true"
+        app:constraint_referenced_ids="titleStartInset" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/titleEndBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="start"
+        app:barrierAllowsGoneWidgets="true"
+        app:constraint_referenced_ids="titleEndInset" />
 
     <!--    btnActionBarLeft-->
     <ImageView
@@ -85,11 +115,10 @@
     </androidx.cardview.widget.CardView>
 
     <!--    tvStart-->
-    <com.therian.oc.aaabb.core.custom.text.DoubleStrokeTextView
+    <com.character.ocmaker.creator.core.custom.text.DoubleStrokeTextView
         android:id="@+id/tvStart"
-        android:layout_width="@dimen/dp_200"
+        android:layout_width="@dimen/dp_0"
         android:layout_height="@dimen/dp_40"
-        android:layout_marginStart="@dimen/dp_20"
         android:fontFamily="@font/berlin_sans_fb_demi_bold"
         android:gravity="start"
         android:includeFontPadding="false"
@@ -99,17 +128,18 @@
         android:visibility="gone"
 
         app:layout_constraintBottom_toBottomOf="@+id/btnActionBarLeft"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@id/titleStartBarrier"
+        app:layout_constraintEnd_toStartOf="@id/titleEndBarrier"
         app:layout_constraintTop_toTopOf="@+id/btnActionBarLeft"
         tools:visibility="visible" />
 
     <!--    tvCenter-->
-    <com.therian.oc.aaabb.core.custom.text.DoubleStrokeTextView
+    <com.character.ocmaker.creator.core.custom.text.DoubleStrokeTextView
         android:id="@+id/tvCenter"
         style="@style/single_marquee"
-        android:layout_width="@dimen/dp_200"
+        android:layout_width="@dimen/dp_0"
         android:layout_height="@dimen/dp_40"
-        android:layout_marginHorizontal="@dimen/dp_102"
+        android:layout_marginHorizontal="@dimen/dp_20"
         android:fontFamily="@font/berlin_sans_fb_demi_bold"
         android:gravity="center"
         android:includeFontPadding="false"
@@ -288,4 +318,4 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</com.character.ocmaker.creator.core.custom.layout.ActionBarLayout>

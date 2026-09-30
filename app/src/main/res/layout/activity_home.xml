@@ -81,7 +81,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
 
-                <com.therian.oc.aaabb.core.custom.text.DoubleStrokeTextView
+                <com.character.ocmaker.creator.core.custom.text.DoubleStrokeTextView
                     android:id="@+id/tv1"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
@@ -121,7 +121,7 @@
                 app:layout_constraintTop_toTopOf="@id/btnPlay">
 
 
-                <com.therian.oc.aaabb.core.custom.text.DoubleStrokeTextView
+                <com.character.ocmaker.creator.core.custom.text.DoubleStrokeTextView
                     android:id="@+id/tv2"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
@@ -162,7 +162,7 @@
                 app:layout_constraintTop_toBottomOf="@id/btnPlay">
 
 
-                <com.therian.oc.aaabb.core.custom.text.DoubleStrokeTextView
+                <com.character.ocmaker.creator.core.custom.text.DoubleStrokeTextView
                     android:id="@+id/tv3"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
@@ -203,7 +203,7 @@
                 app:layout_constraintTop_toTopOf="@id/btnRandom">
 
 
-                <com.therian.oc.aaabb.core.custom.text.DoubleStrokeTextView
+                <com.character.ocmaker.creator.core.custom.text.DoubleStrokeTextView
                     android:id="@+id/tv4"
                     android:layout_width="0dp"
                     android:layout_height="0dp"

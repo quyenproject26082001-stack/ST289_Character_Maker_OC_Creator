@@ -123,7 +123,7 @@
         </provider>
         <provider
             android:name=".core.utils.share.whatsapp.StickerContentProvider"
-            android:authorities="com.therian.oc.aaabb.core.utils.share.whatsapp.StickerContentProvider"
+            android:authorities="com.character.ocmaker.creator.core.utils.share.whatsapp.StickerContentProvider"
             android:enabled="true"
             android:exported="true"
             android:readPermission="com.whatsapp.sticker.READ" />
