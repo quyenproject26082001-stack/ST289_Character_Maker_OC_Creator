@@ -1,7 +1,7 @@
 package com.therian.oc.aaabb.core.utils.key
 
 object ValueKey {
-    const val DOWNLOAD_ALBUM = "ST308_Therian_OC_Maker_2"
+    const val DOWNLOAD_ALBUM = "ST289_Character_Maker_OC_Creator"
     const val DOWNLOAD_ALBUM_BACKGROUND = "Image Background"
 
     const val RANDOM_QUANTITY = 20

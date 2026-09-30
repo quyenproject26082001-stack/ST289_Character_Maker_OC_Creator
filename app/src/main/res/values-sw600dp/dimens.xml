@@ -25,6 +25,7 @@
     <dimen name="dp_9">13.5dp</dimen>
     <dimen name="dp_9_5">14.25dp</dimen>
     <dimen name="dp_10">15dp</dimen>
+    <dimen name="dp_11">16.5dp</dimen>
     <dimen name="dp_12">18dp</dimen>
     <dimen name="dp_13">19.5dp</dimen>
     <dimen name="dp_14">21dp</dimen>
@@ -118,5 +119,20 @@
     <dimen name="_220dp">330dp</dimen>
     <dimen name="dp_90">135dp</dimen>
     <dimen name="tablet">40dp</dimen>
+    <dimen name="dp_2_5">3.75dp</dimen>
+    <dimen name="dp_3_5">5.25dp</dimen>
+    <dimen name="dp_324">486dp</dimen>
+    <dimen name="dp_12_5">18.75dp</dimen>
+    <dimen name="dp_176">264dp</dimen>
+    <dimen name="dp_292">438dp</dimen>
+    <dimen name="dp_84">126dp</dimen>
+    <dimen name="dp_31">46.5dp</dimen>
+    <dimen name="dp_304">456dp</dimen>
     <item name="customize_horizontal_guide_percent" type="dimen">0.55</item>
+    <dimen name="dp_95">142.5dp</dimen>
+    <dimen name="dp_minus_5">-7.5dp</dimen>
+    <dimen name="dp_minus_50">-75dp</dimen>
+    <dimen name="sp_0_5">0.75sp</dimen>
+    <dimen name="sp_1">1.5sp</dimen>
+    <dimen name="sp_32">48sp</dimen>
 </resources>

@@ -198,6 +198,8 @@ class MyDesignFragment : BaseFragment<FragmentMyDesignBinding>() {
         myAlbumActivity.exitSelectionMode()
     }
 
+    fun hasDisplayItems(): Boolean = viewModel.myDesignList.value.isNotEmpty()
+
     fun getAllPaths(): ArrayList<String> {
         return viewModel.myDesignList.value
             .filterNot { it.isFake }

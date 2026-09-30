@@ -12,21 +12,16 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.therian.oc.aaabb.R
-import android.graphics.drawable.Drawable
-import androidx.core.content.ContextCompat
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
-import com.facebook.shimmer.ShimmerDrawable
+import com.therian.oc.aaabb.core.extensions.loadWithXmlShimmer
 import com.therian.oc.aaabb.core.extensions.setMargins
 import com.therian.oc.aaabb.core.extensions.tap
-import com.therian.oc.aaabb.core.utils.DataLocal
 import com.therian.oc.aaabb.data.model.custom.NavigationModel
 import com.therian.oc.aaabb.databinding.ItemBottomNavigationBinding
 
-class BottomNavigationCustomizeAdapter(private val context: Context) :
+class BottomNavigationCustomizeAdapter(
+    private val context: Context,
+    private val useSouthParkStyle: Boolean = false
+) :
     ListAdapter<NavigationModel, BottomNavigationCustomizeAdapter.BottomNavViewHolder>(DiffCallback) {
     var onItemClick: (Int) -> Unit = {}
 
@@ -35,9 +30,6 @@ class BottomNavigationCustomizeAdapter(private val context: Context) :
     ) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: NavigationModel, position: Int) = with(binding) {
-
-            binding.imvImageBG.maskDrawable = ContextCompat.getDrawable(binding.root.context, R.drawable.mask_item_navi)
-
 
             // Apply circular clipping to cvContent (so shimmer/image fills circle and doesn't overflow)
 //            cvContent.clipToOutline = true
@@ -72,50 +64,59 @@ class BottomNavigationCustomizeAdapter(private val context: Context) :
             // Cancel any running animations to prevent jumps when recycling views
             cvContent.animate().cancel()
 
-            val horizontalMargin = context.resources.getDimensionPixelSize(R.dimen.dp_4)
-            binding.main.setMargins(horizontalMargin, 0, horizontalMargin, 0)
+            val normalSize = context.resources.getDimensionPixelSize(R.dimen.dp_48)
+            val selectedSize = context.resources.getDimensionPixelSize(R.dimen.dp_56)
+
+            if (useSouthParkStyle) {
+                val itemSize = if (item.isSelected) selectedSize else normalSize
+                binding.main.layoutParams = binding.main.layoutParams.apply {
+                    width = itemSize
+                    height = selectedSize
+                }
+                binding.cvContent.layoutParams = binding.cvContent.layoutParams.apply {
+                    width = itemSize
+                    height = itemSize
+                }
+                binding.main.setMargins(
+                    left = 0,
+                    top = 0,
+                    right = context.resources.getDimensionPixelSize(R.dimen.dp_1),
+                    bottom = 0
+                )
+            } else {
+                binding.main.layoutParams = binding.main.layoutParams.apply {
+                    width = normalSize
+                    height = normalSize
+                }
+                binding.cvContent.layoutParams = binding.cvContent.layoutParams.apply {
+                    width = normalSize
+                    height = normalSize
+                }
+                val horizontalMargin = context.resources.getDimensionPixelSize(R.dimen.dp_4)
+                binding.main.setMargins(horizontalMargin, 0, horizontalMargin, 0)
+            }
 
             if (item.isSelected) {
                 imvImage.setBackgroundColor(Color.TRANSPARENT)
-                cvContent.setBackgroundResource(R.drawable.bg_select_navi_shape)
+                cvContent.setBackgroundResource(
+                    if (useSouthParkStyle) {
+                        R.drawable.bg_bottom_nav_selected
+                    } else {
+                        R.drawable.bg_bottom_nav_selected
+                    }
+                )
             } else {
                 imvImage.setBackgroundColor(Color.TRANSPARENT)
-                cvContent.setBackgroundResource(R.drawable.bg_uslt_navi_shape)
+                cvContent.setBackgroundResource(
+                    if (useSouthParkStyle) {
+                        R.drawable.bg_bottom_nav_unselected
+                    } else {
+                        R.drawable.bg_bottom_nav_unselected
+                    }
+                )
             }
 
-            // Layer 1: imvImage - shimmer fills full circle (0dp margin)
-            val shimmerDrawable = ShimmerDrawable().apply {
-                setShimmer(DataLocal.shimmer)
-            }
-            imvImage.setImageDrawable(shimmerDrawable)
-            imvImage.visibility = View.VISIBLE
-
-            // Layer 2: imvImageBG - actual image with margin (2dp margin)
-            Glide.with(root)
-                .load(item.imageNavigation)
-                .listener(object : RequestListener<Drawable> {
-                    override fun onLoadFailed(
-                        e: GlideException?,
-                        model: Any?,
-                        target: Target<Drawable>,
-                        isFirstResource: Boolean
-                    ): Boolean {
-                        return false
-                    }
-
-                    override fun onResourceReady(
-                        resource: Drawable,
-                        model: Any,
-                        target: Target<Drawable>?,
-                        dataSource: DataSource,
-                        isFirstResource: Boolean
-                    ): Boolean {
-                        // Hide shimmer when image loads successfully
-                        imvImage.visibility = View.GONE
-                        return false
-                    }
-                })
-                .into(imvImageBG)
+            imvImageBG.loadWithXmlShimmer(item.imageNavigation, sflShimmer)
 
             root.tap { onItemClick.invoke(position) }
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/lnlSticker"
@@ -8,22 +8,20 @@
     android:orientation="vertical"
     android:visibility="gone"
     tools:visibility="visible">
-<!--            &lt;!&ndash; Title: Sticker &ndash;&gt;-->
+    <!--            &lt;!&ndash; Title: Sticker &ndash;&gt;-->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/dp_22"
-        android:background="@drawable/bg_bg" />
+        android:background="#C47900" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvCategory"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_36"
-        android:layout_marginStart="@dimen/dp_24"
-        android:layout_marginTop="@dimen/dp_32"
         android:orientation="horizontal"
         android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/item_category"
         tools:visibility="visible" />
 
@@ -31,14 +29,14 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvSticker"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/dp_74"
-        android:layout_marginBottom="@dimen/dp_22"
-        android:paddingBottom="@dimen/dp_60"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dp_6"
+        android:paddingBottom="@dimen/add_character_bottom_gap"
         android:clipToPadding="false"
-
-        android:paddingHorizontal="@dimen/dp_18"
+        android:paddingHorizontal="@dimen/dp_12_5"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/rcvCategory"
         app:spanCount="5"
         tools:listitem="@layout/item_sticker" />
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

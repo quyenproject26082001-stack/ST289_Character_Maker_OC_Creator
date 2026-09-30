@@ -20,13 +20,14 @@
     </FrameLayout>
 
     <!--    cvImage-->
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cvImage"
         android:layout_width="@dimen/dp_0"
         android:layout_height="@dimen/dp_0"
         android:layout_marginHorizontal="@dimen/dp_20"
         android:layout_marginTop="@dimen/dp_18"
         android:layout_marginBottom="@dimen/dp_16"
+        android:background="@drawable/bg_avatar_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,12 +37,18 @@
 
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="0dp"
             android:layout_margin="@dimen/dp_2"
-            app:cardBackgroundColor="@color/white"
-            app:cardCornerRadius="@dimen/dp_12"
-            app:strokeColor="@color/figma_primary"
+            app:cardBackgroundColor="#FFAE8C"
+            app:cardCornerRadius="@dimen/dp_0"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintHeight_percent="0.93333333333"
+            app:strokeColor="@color/transparent"
             app:strokeWidth="@dimen/dp_2">
 
 
@@ -51,26 +58,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="fitCenter" />
-
+            <ImageView
+                android:id="@+id/guidRandom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/guide_random"
+                android:scaleType="fitCenter" />
         </com.google.android.material.card.MaterialCardView>
 
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/guidRandom"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/dp_0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:visibility="gone"
-            tools:visibility="visible">
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 
@@ -78,67 +77,97 @@
 
 
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/dp_20"
         android:layout_marginTop="@dimen/dp_62"
         android:orientation="horizontal"
         android:weightSum="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cvImage">
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/btnGenerate"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/GLCenter1"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_44"
-            android:layout_marginEnd="@dimen/dp_4"
-            android:layout_weight="1"
-            app:strokeColor="@color/figma_primary"
-            app:strokeWidth="@dimen/dp_2">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+        <!--            btnWhatsapp-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnGenerate"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/GLCenter1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_0"
+            app:layout_constraintDimensionRatio="H,156:44"
+            android:background="@drawable/bg_btn_bottom"
+            tools:ignore="NotSibling">
 
             <TextView
                 android:id="@+id/tvRandom"
-                style="@style/single_marquee"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:fontFamily="@font/berlin_sans_fb_demi_bold"
-                android:gravity="center"
-                android:paddingHorizontal="@dimen/dp_2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintVertical_bias=".4"
+                app:layout_constraintHeight_percent="0.45454545454"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 android:text="@string/random"
-                android:textColor="@color/figma_primary"
+                android:fontFamily="@font/berlin_sans_fb_demi_bold"
+                android:textColor="@color/white"
+                android:autoSizeStepGranularity="@dimen/sp_0_5"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="@dimen/sp_12"
+                android:autoSizeMaxTextSize="@dimen/dp_30"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
-                android:textSize="@dimen/sp_16"
-                android:visibility="visible" />
-        </com.google.android.material.card.MaterialCardView>
 
-        <com.google.android.material.card.MaterialCardView
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/btnCosPlay"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_44"
-            android:layout_marginStart="@dimen/dp_4"
-            android:layout_weight="1"
-            app:strokeColor="@color/figma_primary"
-            app:strokeWidth="@dimen/dp_2">
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="H,156:44"
+
+            app:layout_constraintStart_toStartOf="@id/GLCenter1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="@dimen/dp_2"
+            android:layout_marginEnd="@dimen/dp_20"
+
+            android:background="@drawable/bg_btn_bottom"
+            tools:ignore="NotSibling">
 
             <TextView
                 android:id="@+id/tvCosplay"
-                style="@style/single_marquee"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintVertical_bias=".4"
+                app:layout_constraintHeight_percent="0.45454545454"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@string/cosplay"
                 android:fontFamily="@font/berlin_sans_fb_demi_bold"
+                android:textColor="@color/white"
+                android:autoSizeStepGranularity="@dimen/sp_0_5"
+                android:autoSizeTextType="uniform"
+                android:autoSizeMinTextSize="@dimen/sp_12"
+                android:autoSizeMaxTextSize="@dimen/dp_30"
                 android:gravity="center"
-                android:paddingHorizontal="@dimen/dp_2"
-                android:text="@string/playcos"
-                android:textColor="@color/figma_primary"
-                android:textSize="@dimen/sp_16"
-                android:visibility="visible" />
-        </com.google.android.material.card.MaterialCardView>
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
-    </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Overlay chặn touch khi guide đang mở -->
     <View
@@ -160,6 +189,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:visibility="gone"
+        tools:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -178,7 +208,7 @@
             android:gravity="center"
             android:paddingHorizontal="@dimen/dp_10"
             android:text="@string/instruction"
-            android:textColor="@color/figma_primary"
+            android:textColor="@color/white"
             android:textSize="@dimen/sp_24"
             app:layout_constraintTop_toTopOf="@id/bg_frame1"
             app:layout_constraintEnd_toEndOf="parent"
@@ -196,11 +226,11 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <com.google.android.material.card.MaterialCardView
+            <FrameLayout
                 android:layout_width="@dimen/dp_0"
                 android:layout_height="@dimen/dp_0"
                 app:strokeColor="@color/figma_primary"
-                app:cardBackgroundColor="#EDEDFF"
+                android:background="@drawable/bg_dialog_1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -211,15 +241,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_10"
-                android:fontFamily="@font/baloo2_regular"
+                android:fontFamily="@font/berlin_sans_fb_demi_bold"
                 android:gravity="center"
-                android:letterSpacing=".0"
-                android:lineSpacingMultiplier="1"
-                android:paddingHorizontal="@dimen/dp_15"
-                android:paddingTop="@dimen/dp_60"
-                android:paddingBottom="@dimen/dp_20"
+                android:letterSpacing=".01"
+                android:lineSpacingMultiplier="1.05"
+                android:paddingHorizontal="@dimen/dp_25"
+                android:paddingTop="@dimen/dp_50"
+                android:paddingBottom="@dimen/dp_24"
                 android:text="@string/guide_cosplay"
-                android:textColor="@color/figma_primary"
+                android:textColor="@color/white"
                 android:textSize="@dimen/sp_16"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"

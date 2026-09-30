@@ -12,7 +12,6 @@
         android:clipToPadding="false">
 
 
-
         <!--        layoutMain-->
         <androidx.cardview.widget.CardView
             android:id="@+id/layoutMain"
@@ -34,8 +33,8 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/containerDialog"
-                android:layout_width="@dimen/dp_328"
-                android:layout_height="@dimen/dp_200"
+                android:layout_width="@dimen/dp_292"
+                android:layout_height="@dimen/dp_176"
                 android:layout_gravity="center"
                 android:background="@drawable/bg_dialog_delete_exit"
                 android:clipChildren="false"
@@ -43,18 +42,13 @@
                 android:clipToPadding="false">
 
 
-
                 <TextView
                     android:id="@+id/tvTitle"
                     style="@style/single_marquee"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-app:layout_constraintTop_toTopOf="parent"
-                    android:includeFontPadding="false"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    android:layout_marginTop="@dimen/dp_18"
                     android:layout_marginHorizontal="@dimen/dp_50"
+                    android:layout_marginTop="@dimen/dp_14"
                     android:layout_marginBottom="@dimen/dp_minus_26"
                     android:clipChildren="false"
                     android:clipToOutline="false"
@@ -62,11 +56,15 @@ app:layout_constraintTop_toTopOf="parent"
                     android:elevation="@dimen/dp_1"
                     android:fontFamily="@font/berlin_sans_fb_demi_bold"
                     android:gravity="center"
+                    android:includeFontPadding="false"
                     android:paddingVertical="@dimen/dp_5"
                     android:text="@string/delete"
-                    tools:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-                    android:textColor="@color/figma_primary"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/sp_24"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 
                     />
 
@@ -77,24 +75,23 @@ app:layout_constraintTop_toTopOf="parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/baloo2_semibold"
                     android:gravity="center"
-                    app:layout_constraintVertical_bias=".27"
                     android:paddingHorizontal="@dimen/dp_24"
                     android:text="@string/do_you_want_to_exit"
-                    android:textColor="#999999"
-                    tools:text="asdassssssssssaaaaaaaaaaaaaaasssss"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/sp_16"
                     app:layout_constraintBottom_toTopOf="@id/llButtons"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvTitle"
-                />
+                    app:layout_constraintVertical_bias=".5"
+                    tools:text="asdassssssssssaaaaaaaaaaaaaaasssss" />
 
                 <LinearLayout
                     android:id="@+id/llButtons"
                     android:layout_width="@dimen/dp_0"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/dp_20"
-                    android:layout_marginBottom="@dimen/dp_20"
+                    android:layout_marginBottom="@dimen/dp_26"
                     android:gravity="center"
                     android:orientation="horizontal"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -105,30 +102,29 @@ app:layout_constraintTop_toTopOf="parent"
                     <!--                    btnNo-->
                     <TextView
                         android:id="@+id/btnYes"
-                        android:layout_width="@dimen/dp_88"
-                        android:layout_height="@dimen/dp_44"
+                        android:layout_width="@dimen/dp_120"
+                        android:layout_height="@dimen/dp_36"
                         android:layout_weight="1"
                         android:background="@drawable/ic_yes_dialog"
                         android:fontFamily="@font/berlin_sans_fb_demi_bold"
                         android:gravity="center"
-                        android:paddingVertical="@dimen/dp_6"
                         android:text="@string/yes"
-                        android:textColor="@color/app"
-                        android:textSize="@dimen/sp_18" />
+                        android:textColor="@color/app2"
+                        android:textSize="@dimen/sp_16" />
                     <!--                    btnYes-->
                     <TextView
                         android:id="@+id/btnNo"
-                        android:layout_width="@dimen/dp_88"
-                        android:layout_height="@dimen/dp_44"
+                        android:layout_width="@dimen/dp_120"
+                        android:layout_height="@dimen/dp_36"
                         android:layout_marginStart="@dimen/dp_8"
                         android:layout_weight="1"
                         android:background="@drawable/ic_no_dialog"
                         android:fontFamily="@font/berlin_sans_fb_demi_bold"
                         android:gravity="center"
-                        android:paddingVertical="@dimen/dp_9"
+
                         android:text="@string/no"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/sp_18" />
+                        android:textSize="@dimen/sp_16"  />
                 </LinearLayout>
 
             </androidx.constraintlayout.widget.ConstraintLayout>

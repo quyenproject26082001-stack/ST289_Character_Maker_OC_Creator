@@ -2,6 +2,7 @@ package com.therian.oc.aaabb.ui.cosplay
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Rect
 import android.view.LayoutInflater
 import androidx.activity.viewModels
 import androidx.lifecycle.Lifecycle
@@ -94,13 +95,35 @@ class CosplaySuccessfulActivity : BaseActivity<ActivityCosplaySuccessfulBinding>
             btnActionBarRight.visible()
             btnActionBarRight.setImageResource(R.drawable.ic_home)
             tvCenter.visible()
-            tvCenter.setText(R.string.successfully1)
+            tvCenter.setText(R.string.cosplay)
         }
     }
 
     private fun updateProgressDisplay() {
         val progress = finalProgress.coerceIn(0, 100)
         binding.tvProgress.text = "$progress/100"
+
+        binding.progressContainer.post {
+            val containerWidth = binding.progressContainer.width.toFloat()
+            val revealRight = (containerWidth * progress / 100f)
+                .coerceIn(0f, containerWidth)
+                .toInt()
+
+            binding.progressBar.clipBounds = Rect(
+                0,
+                0,
+                revealRight,
+                binding.progressBar.height
+            )
+
+            val thumbWidth = binding.icThumb.width.toFloat()
+            val thumbCenter = revealRight.toFloat().coerceIn(
+                thumbWidth / 2f,
+                containerWidth - thumbWidth / 2f
+            )
+            binding.icThumb.translationX = thumbCenter - containerWidth / 2f
+        }
+
         val starRes = when {
             progress == 0 -> R.drawable.zero_star_ss
             progress < 20 -> R.drawable.one_star_ss

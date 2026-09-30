@@ -20,11 +20,11 @@
             android:id="@+id/containerCard"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="@dimen/dp_4_5"
+            android:layout_margin="@dimen/dp_3_5"
             app:cardBackgroundColor="@color/transparent"
-            app:cardCornerRadius="@dimen/dp_4"
+            app:cardCornerRadius="@dimen/dp_0"
             app:cardElevation="@dimen/dp_0"
-            app:strokeColor="@color/figma_primary"
+            app:strokeColor="@color/app2"
             app:strokeWidth="@dimen/dp_3"
 
             >
@@ -36,6 +36,18 @@
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop" />
 
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/sflShimmer"
+                style="@style/ImageLoadingShimmer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/image_shimmer_base" />
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
             <!--            imvImage-->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/btnNone"
@@ -43,8 +55,8 @@
                 android:layout_height="match_parent"
                 android:visibility="gone"
                 app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="@dimen/dp_4"
-                tools:visibility="visible">
+                app:cardCornerRadius="@dimen/dp_0"
+                tools:visibility="gone">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -52,7 +64,7 @@
                     android:padding="@dimen/dp_15"
                     android:scaleType="centerCrop"
                     android:src="@drawable/ic_none"
-                    app:tint="@color/figma_primary" />
+                    app:tint="@color/app2" />
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -64,36 +76,47 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#FFFFFF"
-                tools:visibility="gone"
+                tools:visibility="visible"
                 android:visibility="visible">
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     android:adjustViewBounds="true"
-                    android:padding="@dimen/dp_15"
-                    android:layout_marginTop="@dimen/dp_minus_8"
+                    android:scaleY=".65"
+                    android:scaleX=".65"
+                    android:translationY="@dimen/dp_minus_5"
                     android:scaleType="fitCenter"
                     android:src="@drawable/ic_add_image"
-                    android:tint="@color/figma_primary" />
+                    android:tint="@color/app2" />
 
 
                 <TextView
                     android:id="@+id/tvAddImg"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:fontFamily="@font/berlin_sans_fb_demi_bold"
                     android:gravity="center"
                     android:text="@string/add_image"
-                    android:textColor="@color/figma_primary"
+                    android:textColor="@color/app2"
+                    app:layout_constraintHeight_percent="0.18333333333"
                     android:textSize="@dimen/sp_10"
                     style="@style/single_marquee"
+                    android:autoSizeMaxTextSize="@dimen/sp_40"
+                    android:autoSizeMinTextSize="@dimen/sp_10"
+                    android:autoSizeStepGranularity="@dimen/sp_0_5"
+                    android:autoSizeTextType="uniform"
                     android:visibility="visible"
+                    tools:visibility="visible"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias=".98" />
+                    app:layout_constraintVertical_bias=".85714285714" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>

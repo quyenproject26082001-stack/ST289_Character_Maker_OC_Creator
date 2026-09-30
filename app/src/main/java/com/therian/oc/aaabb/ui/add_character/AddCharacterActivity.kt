@@ -4,11 +4,7 @@ import android.annotation.SuppressLint
 import android.app.ActivityOptions
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.graphics.LinearGradient
-import android.graphics.Shader
-import android.net.Uri
 import android.text.Editable
 import android.text.SpannableString
 import android.text.TextWatcher
@@ -22,7 +18,6 @@ import android.widget.ImageView
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.core.graphics.drawable.toBitmap
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.isVisible
@@ -33,22 +28,16 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
 import com.facebook.shimmer.ShimmerDrawable
-import com.lvt.ads.util.Admob
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import com.therian.oc.aaabb.R
 import com.therian.oc.aaabb.core.base.BaseActivity
 import com.therian.oc.aaabb.core.extensions.checkInternet
-import com.therian.oc.aaabb.core.extensions.checkPermissions
-import com.therian.oc.aaabb.core.extensions.goToSettings
 import com.therian.oc.aaabb.core.extensions.gone
 import com.therian.oc.aaabb.core.extensions.hideNavigation
 import com.therian.oc.aaabb.core.extensions.hideSoftKeyboard
-import com.therian.oc.aaabb.core.extensions.invisible
 import com.therian.oc.aaabb.core.extensions.loadImage
-import com.therian.oc.aaabb.core.extensions.loadNativeCollabAds
-import com.therian.oc.aaabb.core.extensions.requestPermission
 import com.therian.oc.aaabb.core.extensions.select
 import com.therian.oc.aaabb.core.extensions.setFont
 import com.therian.oc.aaabb.core.extensions.setImageActionBar
@@ -60,7 +49,6 @@ import com.therian.oc.aaabb.core.helper.LanguageHelper
 import com.therian.oc.aaabb.core.utils.DataLocal
 import com.therian.oc.aaabb.core.utils.key.AssetsKey
 import com.therian.oc.aaabb.core.utils.key.IntentKey
-import com.therian.oc.aaabb.core.utils.key.RequestKey
 import com.therian.oc.aaabb.core.utils.key.ValueKey
 import com.therian.oc.aaabb.core.utils.state.SaveState
 import com.therian.oc.aaabb.data.model.draw.Draw
@@ -78,13 +66,11 @@ import com.therian.oc.aaabb.ui.add_character.adapter.StickerAdapter
 import com.therian.oc.aaabb.ui.add_character.adapter.TextColorAdapter
 import com.therian.oc.aaabb.ui.add_character.adapter.TextFontAdapter
 import com.therian.oc.aaabb.ui.permission.PermissionViewModel
-import com.therian.oc.aaabb.ui.view.ViewActivity
 import com.therian.oc.aaabb.ui.success.SuccessActivity
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import kotlin.collections.get
 import kotlin.getValue
 import kotlin.toString
 
@@ -775,7 +761,7 @@ class AddCharacterActivity : BaseActivity<ActivityAddCharacterBinding>() {
                 DataLocal.bottomNavigationNotSelect[index] to false
             }
             val buttonSize = resources.getDimensionPixelSize(
-                if (isSelected) R.dimen.dp_48 else R.dimen.dp_40
+                if (isSelected) R.dimen.dp_50 else R.dimen.dp_50
             )
 
             button.layoutParams = button.layoutParams.apply {

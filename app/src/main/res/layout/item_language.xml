@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     tools:background="@color/blue_app"
-    android:layout_marginBottom="@dimen/dp_16">
+    android:layout_marginBottom="@dimen/dp_12">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/flMain"
@@ -42,25 +42,30 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintWidth_percent="0.05"
+                android:id="@+id/view1"
+                app:layout_constraintStart_toEndOf="@id/imvFlag"
+                />
             <TextView
                 android:id="@+id/tvLang"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHeight_percent="0.41071428571"
-                android:layout_marginStart="@dimen/dp_16"
+                app:layout_constraintHeight_percent="0.391071428571"
                 android:fontFamily="@font/berlin_sans_fb_demi_bold"
                 android:gravity="center_vertical"
                 android:includeFontPadding="false"
                 app:layout_constraintVertical_bias="0.44594594594"
                 android:textColor="@color/language_text"
                 android:autoSizeTextType="uniform"
-                android:autoSizeStepGranularity="0.5sp"
+                android:autoSizeStepGranularity="@dimen/sp_0_5"
                 android:autoSizeMaxTextSize="@dimen/sp_40"
                 android:autoSizeMinTextSize="@dimen/sp_12"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/imvFlag"
+            app:layout_constraintStart_toEndOf="@id/view1"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Englassaasish" />
 

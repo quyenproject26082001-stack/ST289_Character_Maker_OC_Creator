@@ -13,6 +13,7 @@ import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.therian.oc.aaabb.R
+import com.therian.oc.aaabb.core.custom.background.ColorListShadowDrawable
 import com.therian.oc.aaabb.core.base.BaseActivity
 import com.therian.oc.aaabb.core.extensions.gone
 import com.therian.oc.aaabb.core.extensions.hideNavigation
@@ -76,6 +77,7 @@ class CosplayCustomizeActivity : BaseActivity<ActivityCosplayCustomizeBinding>()
     }
 
     override fun initView() {
+      //  binding.relativeLayout.background = ColorListShadowDrawable(this)
         initRcv()
         binding.tvCountDown.text = "10:00"
         binding.progressContainer.post {

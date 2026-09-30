@@ -14,64 +14,52 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/body"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="292:304"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginHorizontal="@dimen/dp_16"
-            android:background="@drawable/bg_dialog_rate"
+            android:background="@drawable/bg_dialog_1"
             >
 
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/top"
-                android:layout_width="@dimen/dp_0"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/dp_51"
-                android:layout_marginTop="@dimen/dp_16"
-                android:elevation="@dimen/dp_1"
-                android:layout_marginBottom="@dimen/dp_minus_22"
-              app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
 
-                >
                 <TextView
                     android:id="@+id/tvTitle"
                     style="@style/single_marquee"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:fontFamily="@font/berlin_sans_fb_demi_bold"
                     android:gravity="center"
                     android:layout_marginBottom="@dimen/dp_3"
                     android:layout_marginHorizontal="@dimen/dp_30"
                     android:text="@string/choose_color"
-                    android:textColor="@color/figma_primary"
+                    app:layout_constraintHeight_percent="0.08881578947"
+                    android:autoSizeMinTextSize="@dimen/sp_14"
+                    android:autoSizeMaxTextSize="@dimen/sp_40"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeStepGranularity="@dimen/sp_0_5"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/sp_24"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintVertical_bias="0.07220216606"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
 
-                <ImageView
-                    android:layout_width="@dimen/dp_24"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    app:tint="#FFFFFF"
-                    android:visibility="invisible"
-                    android:src="@drawable/ic_close_color_pick"
-                    />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+
 
             <ir.kotlin.kavehcolorpicker.KavehColorPicker
                 android:id="@+id/colorPickerView"
                 android:layout_width="@dimen/dp_0"
-                android:layout_height="@dimen/dp_160"
-                android:layout_marginHorizontal="@dimen/dp_34"
-                android:layout_marginTop="@dimen/dp_60"
+                android:layout_height="@dimen/dp_200"
+                android:layout_marginHorizontal="@dimen/dp_15"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:sliderStrokeSize="@dimen/dp_4"
+                app:layout_constraintVertical_bias=".34"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -81,9 +69,9 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/dp_20"
+                android:layout_marginHorizontal="@dimen/dp_22"
                 android:layout_marginTop="@dimen/dp_0"
-                android:layout_marginBottom="@dimen/dp_20"
+                android:layout_marginBottom="@dimen/dp_30"
                 android:gravity="center"
                 android:orientation="vertical"
                 app:layout_constraintTop_toBottomOf="@id/colorPickerView"
@@ -95,19 +83,20 @@
                     app:sliderStrokeSize="@dimen/dp_4"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_width="@dimen/dp_0"
-                    android:layout_marginHorizontal="@dimen/dp_16"
                     app:layout_constraintStart_toStartOf="parent"
-                    android:layout_height="@dimen/dp_34" />
+                    android:layout_height="@dimen/dp_37" />
 
 
                 <!--                btnDone-->
-                <RelativeLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/btnDone"
-                    android:layout_width="@dimen/dp_0"
-                    android:layout_height="@dimen/dp_44"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
                     android:layout_gravity="end"
-                    android:layout_marginStart="@dimen/dp_8"
-                    android:layout_marginTop="@dimen/dp_15"
+                    android:layout_marginStart="@dimen/dp_4"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:layout_marginEnd="@dimen/dp_10"
+                    app:layout_constraintDimensionRatio="120:36"
                     android:background="@drawable/ic_no_dialog"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/btnClose"
@@ -115,24 +104,34 @@
                     >
                     <TextView
                         android:id="@+id/btnDoneText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/berlin_sans_fb_demi_bold"
                         android:gravity="center"
                         android:text="@string/done"
                         style="@style/single_marquee"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         android:textColor="@color/white"
-                        android:textSize="@dimen/sp_18" />
-                </RelativeLayout>
+                        app:layout_constraintHeight_percent="0.5"
+                        android:autoSizeTextType="uniform"
+                        android:autoSizeStepGranularity="@dimen/sp_0_5"
+                        android:autoSizeMaxTextSize="@dimen/sp_28"
+                        android:autoSizeMinTextSize="@dimen/sp_14" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
                 <!--                btnDone-->
-                <RelativeLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/btnClose"
-                    android:layout_width="@dimen/dp_0"
-                    android:layout_height="@dimen/dp_44"
-                    android:layout_marginEnd="@dimen/dp_8"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="@dimen/dp_4"
                     android:layout_gravity="end"
-                    android:layout_marginTop="@dimen/dp_15"
+                    android:layout_marginStart="@dimen/dp_10"
+                    app:layout_constraintDimensionRatio="120:36"
+                    android:layout_marginTop="@dimen/dp_10"
                     android:background="@drawable/ic_yes_dialog"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toStartOf="@id/btnDone"
@@ -140,16 +139,25 @@
                     >
                     <TextView
                         android:id="@+id/btnCancelText"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
                         android:layout_centerInParent="true"
                         android:fontFamily="@font/berlin_sans_fb_demi_bold"
                         android:gravity="center"
                         android:text="@string/cancel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         style="@style/single_marquee"
-                        android:textColor="@color/app"
-                        android:textSize="@dimen/sp_18" />
-                </RelativeLayout>
+                        android:textColor="@color/app2"
+                        app:layout_constraintHeight_percent="0.5"
+                        android:autoSizeTextType="uniform"
+                       android:autoSizeStepGranularity="@dimen/sp_0_5"
+                        android:autoSizeMaxTextSize="@dimen/sp_28"
+                        android:autoSizeMinTextSize="@dimen/sp_14"
+                        />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <RelativeLayout
                     android:id="@+id/btnStringColor"

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/cvMain"
-    android:layout_width="@dimen/dp_40"
-    android:layout_height="@dimen/dp_40"
-    android:layout_marginHorizontal="@dimen/dp_6"
+    android:layout_width="@dimen/dp_36"
+    android:layout_height="@dimen/dp_36"
+    android:layout_marginEnd="@dimen/dp_12"
     android:background="@drawable/bg_circle_white">
 
     <TextView

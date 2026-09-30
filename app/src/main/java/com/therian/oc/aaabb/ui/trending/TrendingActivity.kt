@@ -81,7 +81,7 @@ class TrendingActivity : BaseActivity<ActivityTrendingBinding>() {
         binding.cvImage.post {
         }
         binding.tvEdit.isSelected = true
-        binding.tvGenerate.isSelected = true
+        binding.tvRandom.isSelected = true
 
     }
 

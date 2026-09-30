@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DEDAFF"
+    android:background="#FFE8C2"
     tools:context=".ui.customize.CustomizeCharacterActivity">
 
     <ImageView
@@ -185,7 +185,7 @@
         android:layout_marginBottom="@dimen/dp_14"
         android:background="?attr/selectableItemBackgroundBorderless"
         android:src="@drawable/ic_move"
-        app:layout_constraintTop_toTopOf="@id/btnRandom"
+        app:layout_constraintTop_toTopOf="@id/glHorizontal"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -193,35 +193,36 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_0"
         android:layout_marginTop="@dimen/dp_61"
-        android:background="#A7A6E2"
+        android:background="#C47900"
         android:elevation="@dimen/dp_2"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/glHorizontal"
-        tools:visibility="gone">
+        tools:visibility="visible">
 
         <com.therian.oc.aaabb.core.custom.text.DoubleStrokeTextView
             android:id="@+id/btnResetMove"
             android:layout_width="@dimen/dp_70"
             android:layout_height="@dimen/dp_40"
-            android:layout_marginStart="@dimen/dp_21"
+            android:layout_marginStart="@dimen/dp_20"
             android:layout_marginTop="@dimen/dp_17"
+            android:paddingBottom="@dimen/dp_3"
             android:background="@drawable/bg_btn_move"
             android:fontFamily="@font/berlin_sans_fb_demi_bold"
             android:gravity="center"
             android:singleLine="true"
             android:text="@string/reset"
-            android:textColor="@color/figma_primary"
-            android:textSize="@dimen/sp_18"
+            android:textColor="@color/app2"
+            android:textSize="@dimen/sp_16"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
 
         <ImageView
             android:id="@+id/rotateToRight"
-            android:layout_width="@dimen/dp_44"
-            android:layout_height="@dimen/dp_44"
-            android:layout_marginStart="@dimen/dp_21"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
+            android:layout_marginStart="@dimen/dp_20"
             android:layout_marginTop="@dimen/dp_20"
             android:background="@drawable/ic_rotate_to_right"
             android:gravity="center"
@@ -231,10 +232,10 @@
 
         <ImageView
             android:id="@+id/rotateToLeft"
-            android:layout_width="@dimen/dp_44"
-            android:layout_height="@dimen/dp_44"
-            android:layout_marginStart="@dimen/dp_21"
-            android:layout_marginTop="@dimen/dp_8"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_16"
             android:background="@drawable/ic_rotate_to_right"
             android:gravity="center"
             android:scaleX="-1"
@@ -246,23 +247,24 @@
         <com.therian.oc.aaabb.core.custom.text.DoubleStrokeTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_8"
+            android:layout_marginTop="@dimen/dp_12"
             android:fontFamily="@font/berlin_sans_fb_demi_bold"
             android:text="@string/size"
-            android:textColor="@color/figma_primary"
-            android:textSize="@dimen/sp_18"
+            android:visibility="visible"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_16"
             app:layout_constraintEnd_toEndOf="@id/scaleUp"
             app:layout_constraintStart_toStartOf="@id/scaleUp"
-            app:layout_constraintBottom_toTopOf="@id/scaleUp"
+            app:layout_constraintTop_toBottomOf="@id/scaleDown"
        />
 
 
         <ImageView
             android:id="@+id/scaleUp"
-            android:layout_width="@dimen/dp_44"
-            android:layout_height="@dimen/dp_44"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
             android:layout_marginStart="@dimen/dp_21"
-            android:layout_marginEnd="@dimen/dp_26"
+            android:layout_marginEnd="@dimen/dp_20"
             android:background="@drawable/ic_scale_up"
             android:gravity="center"
             android:rotation="0"
@@ -272,9 +274,9 @@
 
         <ImageView
             android:id="@+id/scaleDown"
-            android:layout_width="@dimen/dp_44"
-            android:layout_height="@dimen/dp_44"
-            android:layout_marginEnd="@dimen/dp_26"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
+            android:layout_marginEnd="@dimen/dp_20"
             android:background="@drawable/ic_scale_down"
             android:gravity="center"
             android:visibility="visible"
@@ -286,19 +288,19 @@
 
         <ImageView
             android:id="@+id/btnMoveLeft"
-            android:layout_width="@dimen/dp_44"
-            android:layout_height="@dimen/dp_44"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
             android:background="@drawable/ic_arrow_move"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/scaleDown"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias=".38"
+            app:layout_constraintHorizontal_bias=".362"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@id/scaleUp" />
 
         <ImageView
             android:id="@+id/btnMoveUp"
-            android:layout_width="@dimen/dp_44"
-            android:layout_height="@dimen/dp_44"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
             android:background="@drawable/ic_arrow_move"
             android:rotation="90"
             app:layout_constraintBottom_toTopOf="@id/btnMoveLeft"
@@ -306,8 +308,8 @@
 
         <ImageView
             android:id="@+id/btnMoveDown"
-            android:layout_width="@dimen/dp_44"
-            android:layout_height="@dimen/dp_44"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
             android:background="@drawable/ic_arrow_move"
             android:rotation="-90"
             app:layout_constraintStart_toEndOf="@id/btnMoveLeft"
@@ -325,8 +327,8 @@
 
         <ImageView
             android:id="@+id/btnMoveRight"
-            android:layout_width="@dimen/dp_44"
-            android:layout_height="@dimen/dp_44"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
             android:background="@drawable/ic_arrow_move"
             android:rotation="180"
 
@@ -347,19 +349,21 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/color"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/dp_0"
-        android:layout_marginStart="@dimen/dp_8"
-        android:layout_marginEnd="@dimen/dp_12"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginEnd="@dimen/dp_11"
         android:layout_marginBottom="@dimen/dp_0"
         android:background="@color/transparent"
         android:orientation="horizontal"
         android:visibility="gone"
         app:layout_constraintEnd_toStartOf="@id/btnMove"
-        app:layout_constraintStart_toEndOf="@id/btnRandom"
-        app:layout_constraintTop_toTopOf="@id/btnRandom"
-        app:layout_constraintBottom_toBottomOf="@id/btnRandom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/btnMove"
+        app:layout_constraintBottom_toBottomOf="@id/btnMove"
         tools:visibility="visible">
         <!--    btnColor-->
         <ImageView
@@ -376,9 +380,10 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/flColor"
+            android:clipChildren="false"
+            android:clipToPadding="false"
             android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_7"
             android:layout_marginEnd="@dimen/dp_0"
             android:gravity="start"
             android:orientation="horizontal"
@@ -387,13 +392,14 @@
             app:layout_constraintStart_toEndOf="@id/btnColor"
             app:layout_constraintTop_toTopOf="@+id/btnColor">
 
-            <com.google.android.material.card.MaterialCardView
+            <RelativeLayout
                 android:id="@+id/relativeLayout"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/dp_40"
+                android:layout_height="@dimen/dp_42"
                 android:orientation="vertical"
                 app:cardBackgroundColor="#E4E0E0"
                 app:cardCornerRadius="@dimen/dp_30"
+                android:background="@drawable/bg_color_list_shape1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -401,8 +407,9 @@
                 app:strokeWidth="@dimen/dp_2">
 
 
-                <RelativeLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/relative"
+                    android:layout_marginHorizontal="@dimen/dp_10"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent">
 
@@ -412,17 +419,21 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:layout_gravity="center"
-                        android:layout_marginHorizontal="@dimen/dp_4"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintVertical_bias=".38"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         android:clipToPadding="false"
                         android:orientation="horizontal"
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         tools:itemCount="10"
                         tools:listitem="@layout/item_color" />
 
-                </RelativeLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-            </com.google.android.material.card.MaterialCardView>
+            </RelativeLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -433,23 +444,23 @@
         android:id="@+id/btnRandom"
         android:layout_width="@dimen/dp_40"
         android:layout_height="@dimen/dp_40"
-        android:layout_marginStart="@dimen/dp_16"
-        android:layout_marginEnd="@dimen/dp_16"
+        android:layout_marginBottom="@dimen/dp_10"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:elevation="@dimen/dp_2"
         android:src="@drawable/ic_random"
         android:visibility="visible"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/glHorizontal" />
+        app:layout_constraintEnd_toEndOf="@id/btnMove"
+        app:layout_constraintBottom_toTopOf="@id/btnMove"
+
+        />
 
     <TextView
         android:id="@+id/bg_cus"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_0"
         android:layout_marginTop="@dimen/dp_12"
-        android:background="#A7A6E2"
+        android:background="#C47900"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnRandom" />
+        app:layout_constraintTop_toBottomOf="@id/btnMove" />
 
 
     <!--    rcvLayer-->
@@ -479,7 +490,7 @@
         android:layout_height="@dimen/dp_60"
         android:layout_marginHorizontal="@dimen/dp_0"
         android:layout_marginBottom="@dimen/dp_0"
-        android:background="#80A1DB"
+        android:background="#FFBF4A"
         android:clipChildren="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -491,11 +502,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginHorizontal="@dimen/dp_15"
             android:clipChildren="false"
-            android:clipToPadding="false"
+            android:clipToPadding="true"
             android:layerType="hardware"
             android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/dp_16"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/item_bottom_navigation" />
     </FrameLayout>

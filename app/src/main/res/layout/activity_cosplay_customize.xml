@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DEDAFF"
+    android:background="#322721"
     tools:context=".ui.cosplay.CosplayCustomizeActivity">
 
     <!-- Blue background for upper area -->
@@ -31,17 +31,16 @@
     <!-- tvCountDown -->
     <TextView
         android:id="@+id/tvCountDown"
-        android:layout_width="@dimen/dp_126"
-        android:layout_height="@dimen/dp_40"
-        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_width="@dimen/dp_84"
+        android:layout_height="@dimen/dp_31"
         android:background="@drawable/bg_count_down2"
-        android:fontFamily="@font/digital_number_regular"
+        android:fontFamily="@font/berlin_sans_fb_demi_bold"
         android:gravity="center"
-        android:letterSpacing="-.2"
+        android:letterSpacing="0"
         android:paddingStart="@dimen/dp_20"
         android:text="10:00"
-        android:textColor="@color/figma_primary"
-        android:textSize="@dimen/sp_18"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_20"
         app:layout_constraintBottom_toBottomOf="@id/layoutActionBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -50,6 +49,7 @@
         android:layout_width="@dimen/dp_81"
         android:layout_height="@dimen/dp_6"
         android:layout_marginTop="@dimen/dp_12"
+        android:visibility="gone"
         android:src="@drawable/ic_timing_shadow"
         app:layout_constraintEnd_toEndOf="@id/tvCountDown"
         app:layout_constraintStart_toStartOf="@id/tvCountDown"
@@ -71,7 +71,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layoutActionBar"
         app:layout_constraintVertical_bias="0"
-        tools:background="@color/app">
+        >
 
         <FrameLayout
             android:id="@+id/layoutCustomLayer"
@@ -114,28 +114,36 @@
         app:layout_constraintTop_toBottomOf="@+id/btnFlip" />
 
     <!-- containerBtnSamplePhoto (small reference image, top-left) -->
-    <com.google.android.material.card.MaterialCardView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/containerBtnSamplePhoto"
-        android:layout_width="@dimen/dp_60"
-        android:layout_height="@dimen/dp_60"
+        android:layout_width="@dimen/dp_90"
+        android:layout_height="@dimen/dp_90"
         android:layout_marginStart="@dimen/dp_12"
         android:layout_marginEnd="@dimen/dp_16"
         android:visibility="visible"
         app:cardCornerRadius="@dimen/dp_12"
+        android:background="@drawable/bg_1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvCountDown"
+        android:layout_marginTop="@dimen/dp_minus_50"
+        app:layout_constraintTop_toBottomOf="@id/layoutActionBar"
         app:strokeColor="#38306B"
         app:strokeWidth="@dimen/dp_2">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/btnSamplePhoto"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="#FFAE8C"
             android:layout_gravity="center"
             android:scaleType="fitCenter"
-            app:shapeAppearanceOverlay="@style/border_image_6"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHeight_percent="0.88888888888"
             tools:src="@color/dark" />
-    </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- btnMan (gone) -->
     <TextView
@@ -202,9 +210,9 @@
         android:id="@+id/tvThumbProgress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_6"
+        android:layout_marginTop="@dimen/dp_0"
         android:fontFamily="@font/berlin_sans_fb_demi_bold"
-        android:textColor="@color/figma_primary"
+        android:textColor="@color/white"
         android:textSize="@dimen/sp_16"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="@id/progressContainer"
@@ -224,6 +232,8 @@
     <!-- color section (rcvColor) -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/color"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_16"
@@ -251,6 +261,8 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/flColor"
+            android:clipChildren="false"
+            android:clipToPadding="false"
             android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_7"
@@ -266,8 +278,8 @@
             <FrameLayout
                 android:id="@+id/relativeLayout"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/dp_40"
-                android:background="@drawable/bg_list_color"
+                android:layout_height="@dimen/dp_42"
+                android:background="@drawable/bg_color_list_shape1"
                 android:orientation="vertical"
                 app:cardCornerRadius="@dimen/dp_30"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -275,7 +287,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
 
-                <RelativeLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/relative"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent">
@@ -286,6 +298,11 @@
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:layout_gravity="center"
+                        app:layout_constraintVertical_bias=".38"
+app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         android:layout_marginHorizontal="@dimen/dp_4"
                         android:clipToPadding="false"
                         android:orientation="horizontal"
@@ -293,7 +310,7 @@
                         tools:itemCount="10"
                         tools:listitem="@layout/item_color" />
 
-                </RelativeLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
 
             </FrameLayout>
@@ -324,7 +341,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_0"
         android:layout_marginTop="@dimen/dp_12"
-        android:background="#A7A6E2"
+        android:background="#C47900"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/color" />
 
@@ -354,7 +371,7 @@
         android:id="@+id/flBottomNav"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_60"
-        android:background="#80A1DB"
+        android:background="#FFBF4A"
         android:clipChildren="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -383,15 +400,16 @@
         android:clickable="true"
         android:elevation="@dimen/dp_2"
         android:focusable="true"
-        android:visibility="gone">
+        android:visibility="gone"
+        tools:visibility="gone">
 
-        <com.google.android.material.card.MaterialCardView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/containerBtnSamplePhotoShow"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_0"
             android:layout_marginHorizontal="@dimen/dp_16"
             android:layout_marginTop="@dimen/dp_116"
-
+            android:background="@drawable/bg_1"
             android:visibility="visible"
             app:cardCornerRadius="@dimen/dp_12"
             app:layout_constraintDimensionRatio="1:1"
@@ -404,12 +422,19 @@
 
             <ImageView
                 android:id="@+id/btnSamplePhotoShow"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="#FFAE8C"
+                app:layout_constraintDimensionRatio="1"
+                app:layout_constraintHeight_percent="0.9"
                 android:layout_margin="@dimen/dp_0"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 android:scaleType="fitCenter"
-                tools:src="@color/white" />
-        </com.google.android.material.card.MaterialCardView>
+            />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <TextView

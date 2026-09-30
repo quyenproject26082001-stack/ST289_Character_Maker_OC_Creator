@@ -63,7 +63,7 @@ class SuccessActivity : BaseActivity<ActivitySuccessBinding>() {
         binding.includeLayoutBottom.apply {
             
             tvDownload.select()
-            tvShare.select()
+           // tvShare.select()
 
         }
     }
@@ -102,7 +102,7 @@ class SuccessActivity : BaseActivity<ActivitySuccessBinding>() {
             }
 
             // My Album button
-            includeLayoutBottom.btnWhatsapp.tap(2590) {
+            includeLayoutBottom.btnCreation.tap(2590) {
                 showInterAll {
                     startIntentRightToLeft(MyCreationActivity::class.java, IntentKey.TAB_KEY, ValueKey.AVATAR_TYPE)
                     finish()
@@ -110,7 +110,7 @@ class SuccessActivity : BaseActivity<ActivitySuccessBinding>() {
             }
 
             // Download button
-            includeLayoutBottom.btnTelegram.tap(2000) {
+            includeLayoutBottom.btnDownload.tap(2000) {
                 checkStoragePermission()
             }
             includeLayoutBottom.btnFBShare.tap(2000) {

@@ -5,7 +5,7 @@ import com.therian.oc.aaabb.data.model.MyAlbumModel
 
 object MyCreationPreviewConfig {
     const val SHOW_FAKE_ITEMS = false
-    const val FAKE_ITEM_COUNT = 12
+    const val FAKE_ITEM_COUNT = 20
 
     fun createFakeItems(type: String): ArrayList<MyAlbumModel> {
         return List(FAKE_ITEM_COUNT.coerceAtLeast(0)) { index ->

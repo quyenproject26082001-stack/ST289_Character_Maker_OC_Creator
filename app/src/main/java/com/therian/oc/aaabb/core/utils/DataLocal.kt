@@ -13,10 +13,13 @@ import com.therian.oc.aaabb.data.model.SelectedModel
 import com.therian.oc.aaabb.data.model.custom.NavigationModel
 
 object DataLocal {
+    val shimmerBaseColor = 0xFFE5E5E5.toInt()
     val shimmer =
         Shimmer.ColorHighlightBuilder()
-            .setHighlightColor(0xFFFFFFFF.toInt())  // màu highlight
-            .setBaseColor(0xFF4A4A4A.toInt())       // màu nền
+            .setHighlightColor(0xFFFFFFFF.toInt())
+            .setBaseColor(shimmerBaseColor)
+            .setBaseAlpha(1f)
+            .setHighlightAlpha(1f)
             .setDuration(1800)
             .setAutoStart(true)
             .build()

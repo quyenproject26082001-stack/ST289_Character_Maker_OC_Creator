@@ -84,7 +84,7 @@ open class DrawView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
     }
     private val handleboxPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
         colorFilter = PorterDuffColorFilter(
-            ContextCompat.getColor(context, R.color.figma_primary),
+            ContextCompat.getColor(context, R.color.handle_box),
             PorterDuff.Mode.SRC_IN
         )
     }
@@ -1010,7 +1010,7 @@ open class DrawView(context: Context, attrs: AttributeSet?, defStyleAttr: Int) :
     }
 
     private fun setupDefaultIcons() {
-        val iconSize = resources.getDimensionPixelSize(R.dimen.dp_32)
+        val iconSize = resources.getDimensionPixelSize(R.dimen.dp_28)
         val deleteIcon = BitmapDrawIcon(
             ContextCompat.getDrawable(context, R.drawable.ic_close_view), DrawKey.RIGHT_TOP, iconSize
         )

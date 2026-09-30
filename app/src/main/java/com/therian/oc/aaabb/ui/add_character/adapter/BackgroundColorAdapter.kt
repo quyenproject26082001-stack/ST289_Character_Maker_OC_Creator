@@ -3,12 +3,12 @@ package com.therian.oc.aaabb.ui.add_character.adapter
 import android.graphics.Color
 import android.graphics.drawable.GradientDrawable
 import android.util.Log
-import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.bitmap.CircleCrop
 import com.therian.oc.aaabb.R
 import com.therian.oc.aaabb.core.base.BaseAdapter
 import com.therian.oc.aaabb.core.extensions.tap
+import com.therian.oc.aaabb.core.extensions.gone
+import com.therian.oc.aaabb.core.extensions.visible
 import com.therian.oc.aaabb.data.model.SelectedModel
 import com.therian.oc.aaabb.databinding.ItemBackgroundColorBinding
 
@@ -22,8 +22,10 @@ class BackgroundColorAdapter :
         Log.d("BackgroundColorAdapter", "onBind position=$position, color=${String.format("#%06X", 0xFFFFFF and item.color)}, isSelected=${item.isSelected}, path=${item.path}")
 
         binding.apply {
+            sflShimmer.stopShimmer()
+            sflShimmer.gone()
             if (item.isSelected) {
-                cardCtn.setStrokeColor(Color.parseColor("#38306B"))
+                cardCtn.setStrokeColor(Color.parseColor("#DC3C01"))
             } else {
                 cardCtn.setStrokeColor(Color.TRANSPARENT)
             }
@@ -31,13 +33,14 @@ class BackgroundColorAdapter :
 
 
             if (position == 0) {
-                Log.d("BackgroundColorAdapter", "Position 0: Loading img with CircleCrop")
+                Log.d("BackgroundColorAdapter", "Position 0: Setting local image")
                 Glide.with(root.context).clear(imvColor)
                 imvColor.background = null
-                Glide.with(root.context)
-                    .load(R.drawable.img)
-                   // .transform(CircleCrop())
-                    .into(imvColor)
+                imvColor.setImageResource(R.drawable.img)
+                if (imvColor.drawable == null) {
+                    sflShimmer.visible()
+                    sflShimmer.startShimmer()
+                }
                 root.tap { onChooseColorClick.invoke() }
             } else {
                 Log.d("BackgroundColorAdapter", "Position $position: Setting color background")

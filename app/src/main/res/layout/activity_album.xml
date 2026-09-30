@@ -61,10 +61,10 @@
         android:elevation="@dimen/dp_1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintDimensionRatio="260:40"
+        app:layout_constraintDimensionRatio="320:44"
         app:cardBackgroundColor="@android:color/transparent"
         android:layout_marginTop="@dimen/dp_10"
-        app:layout_constraintWidth_percent="0.72222222222"
+        app:layout_constraintWidth_percent="0.88888888888"
         android:layout_marginHorizontal="@dimen/dp_20"
         app:layout_constraintTop_toBottomOf="@id/native_ads"
         app:strokeColor="@color/transparent"
@@ -83,12 +83,13 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            >
 
             <!--            btnMyPixel-->
-            <FrameLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/btnMyPixel"
                 android:layout_width="@dimen/dp_0"
+                app:layout_constraintDimensionRatio="156:44"
                 android:layout_height="match_parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -97,17 +98,28 @@
                 android:layout_weight="1">
 
                 <com.therian.oc.aaabb.core.custom.text.OuterStrokeTextView
-                    android:id="@+id/tvMyPride"
+                    android:id="@+id/tvAvatar"
                     style="@style/single_marquee"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintVertical_bias=".4"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="@dimen/sp_14"
+                    android:autoSizeMaxTextSize="@dimen/sp_40"
+                    app:autoSizeStepGranularity="@dimen/sp_0_5"
+                    android:includeFontPadding="false"
+                    app:layout_constraintHeight_percent="0.45454545454"
                     android:fontFamily="@font/berlin_sans_fb_demi_bold"
                     android:gravity="center"
                     android:text="@string/character"
-                    android:textColor="@color/app"
-                    android:textSize="@dimen/sp_18" />
+                    android:textColor="@color/white"
+                     />
 
-            </FrameLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <FrameLayout
                 android:id="@+id/space"
@@ -120,26 +132,37 @@
                 app:layout_constraintWidth_percent="0.04615384615"
                 />
             <!--            btnMyDesign-->
-            <FrameLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/btnMyDesign"
                 android:layout_width="@dimen/dp_0"
+                app:layout_constraintDimensionRatio="156:44"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/space"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+               >
 
                 <com.therian.oc.aaabb.core.custom.text.OuterStrokeTextView
                     android:id="@+id/tvMyDesign"
                     style="@style/single_marquee"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintVertical_bias=".4"
+                    android:autoSizeTextType="uniform"
+                    android:autoSizeMinTextSize="@dimen/sp_14"
+                    android:autoSizeMaxTextSize="@dimen/sp_40"
+                    app:autoSizeStepGranularity="@dimen/sp_0_5"
+                    android:includeFontPadding="false"
+                    app:layout_constraintHeight_percent="0.45454545454"
                     android:fontFamily="@font/berlin_sans_fb_demi_bold"
                     android:gravity="center"
                     android:text="@string/my_design"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/sp_18" />
+                    android:textColor="@color/white"/>
 
-            </FrameLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -153,6 +176,7 @@
         android:paddingHorizontal="@dimen/dp_0"
         android:elevation="@dimen/dp_2"
         android:visibility="gone"
+        tools:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <include
@@ -170,6 +194,7 @@
         android:paddingHorizontal="@dimen/dp_0"
         android:elevation="@dimen/dp_1"
         android:visibility="gone"
+        tools:visibility="visible"
         app:layout_constraintBottom_toTopOf="@id/flBottomView"
         app:layout_goneMarginBottom="@dimen/dp_0">
 

@@ -20,110 +20,147 @@
     </FrameLayout>
 
 
-    <!--    cvImage-->
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cvImage"
         android:layout_width="@dimen/dp_0"
         android:layout_height="@dimen/dp_0"
         android:layout_marginHorizontal="@dimen/dp_20"
-        android:layout_marginTop="@dimen/dp_0"
+        android:layout_marginTop="@dimen/dp_18"
         android:layout_marginBottom="@dimen/dp_16"
+        android:background="@drawable/bg_avatar_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layoutActionBar"
-        app:layout_constraintVertical_bias=".15">
+        app:layout_constraintVertical_bias="0.15">
+
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="@dimen/dp_12"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/dp_2"
+            app:cardBackgroundColor="#FFAE8C"
+            app:cardCornerRadius="@dimen/dp_0"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintDimensionRatio="1:1"
-            app:strokeColor="@color/figma_primary">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.93333333333"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeColor="@color/transparent"
+            app:strokeWidth="@dimen/dp_2">
 
 
-                    <ImageView
-                        android:id="@+id/imvImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="@dimen/dp_0"
-                        android:scaleType="fitCenter" />
+            <!--        sflShimmer-->
+            <ImageView
+                android:id="@+id/imvImage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitCenter" />
+            <!--        sflShimmer-->
+            <ImageView
+                android:id="@+id/guidRandom"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/guide_random"
+                android:scaleType="fitCenter" />
+        </com.google.android.material.card.MaterialCardView>
 
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_margin="@dimen/dp_0"
-                            android:id="@+id/guidRandom"
-                            android:background="@drawable/guide_random" />
-                </com.google.android.material.card.MaterialCardView>
-
-
-    </FrameLayout>
-
-
-    <FrameLayout
-        android:id="@+id/btnGenerate"
-        android:layout_width="@dimen/dp_0"
-        android:layout_height="@dimen/dp_44"
-        android:layout_marginStart="@dimen/dp_4"
-        android:layout_marginTop="@dimen/dp_68"
-        android:layout_marginEnd="@dimen/dp_20"
-        android:background="@drawable/bg_12dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_62"
+        android:orientation="horizontal"
+        android:weightSum="2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btnEdit"
-        app:layout_constraintTop_toBottomOf="@id/cvImage">
-
-        <TextView
-            android:id="@+id/tvGenerate"
-            style="@style/single_marquee"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="@dimen/dp_30"
-            android:layout_marginEnd="@dimen/dp_30"
-            android:fontFamily="@font/berlin_sans_fb_demi_bold"
-            android:gravity="center"
-            android:text="@string/generate"
-            android:textColor="@color/figma_primary"
-            android:textSize="@dimen/sp_16"
-            android:visibility="visible" />
-
-    </FrameLayout>
-
-
-    <FrameLayout
-        android:id="@+id/btnEdit"
-        android:layout_width="@dimen/dp_0"
-        android:layout_height="@dimen/dp_44"
-        android:layout_marginStart="@dimen/dp_20"
-        android:layout_marginTop="@dimen/dp_68"
-        android:layout_marginEnd="@dimen/dp_4"
-        android:background="@drawable/bg_12dp"
-        app:layout_constraintEnd_toStartOf="@id/btnGenerate"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cvImage">
 
-        <TextView
-            android:id="@+id/tvEdit"
-            style="@style/single_marquee"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/GLCenter1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginStart="@dimen/dp_30"
-            android:layout_marginEnd="@dimen/dp_30"
-            android:fontFamily="@font/berlin_sans_fb_demi_bold"
-            android:gravity="center"
-            android:text="@string/edit"
-            android:textColor="@color/figma_primary"
-            android:textSize="@dimen/sp_16"
-            android:visibility="visible"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+        <!--            btnWhatsapp-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnEdit"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dp_20"
+            android:layout_marginEnd="@dimen/dp_0"
+            android:background="@drawable/bg_btn_bottom"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </FrameLayout>
+            app:layout_constraintDimensionRatio="H,156:44"
+            app:layout_constraintEnd_toEndOf="@id/GLCenter1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="NotSibling">
+
+            <TextView
+                android:id="@+id/tvEdit"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:autoSizeMaxTextSize="@dimen/dp_30"
+                android:autoSizeMinTextSize="@dimen/sp_12"
+                android:autoSizeStepGranularity="@dimen/sp_0_5"
+                android:autoSizeTextType="uniform"
+                android:fontFamily="@font/berlin_sans_fb_demi_bold"
+                android:gravity="center"
+                android:text="@string/edit"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.45454545454"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias=".4" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnGenerate"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dp_2"
+
+            android:layout_marginEnd="@dimen/dp_20"
+            android:background="@drawable/bg_btn_bottom"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="H,156:44"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/GLCenter1"
+
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="NotSibling">
+
+            <TextView
+                android:id="@+id/tvRandom"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:autoSizeMaxTextSize="@dimen/dp_30"
+                android:autoSizeMinTextSize="@dimen/sp_12"
+                android:autoSizeStepGranularity="@dimen/sp_0_5"
+                android:autoSizeTextType="uniform"
+                android:fontFamily="@font/berlin_sans_fb_demi_bold"
+                android:gravity="center"
+                android:text="@string/random"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.45454545454"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias=".4" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <FrameLayout

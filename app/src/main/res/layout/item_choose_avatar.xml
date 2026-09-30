@@ -13,7 +13,8 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_0"
-        android:layout_margin="@dimen/dp_4"
+        android:layout_margin="@dimen/dp_2"
+        android:background="@drawable/bg_avatar_item"
         app:cardBackgroundColor="@color/transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
@@ -30,19 +31,21 @@
             >
 
             <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:cardBackgroundColor="@color/figma_primary"
-                app:cardCornerRadius="@dimen/dp_12"
-                app:layout_constraintDimensionRatio="156:156"
-                app:strokeColor="@color/transparent">
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.4"
+                app:cardBackgroundColor="#FFAE8C"
+                app:cardCornerRadius="0dp"
+                app:strokeWidth="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHeight_percent="0.875"
+                app:layout_constraintDimensionRatio="1:1"
+                app:strokeColor="@color/transparent"
+                android:id="@+id/ctnImg">
 
-                <com.google.android.material.card.MaterialCardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="@dimen/dp_2"
-                    app:cardCornerRadius="@dimen/dp_10"
-                    app:strokeColor="@color/transparent">
 
                     <!--        sflShimmer-->
                     <ImageView
@@ -50,26 +53,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:scaleType="fitCenter"
-                        tools:src="@color/red_BA" />
+                        tools:src="@drawable/im_home_1"
+                       />
                     <com.facebook.shimmer.ShimmerFrameLayout
                         android:id="@+id/sflShimmer"
+                        style="@style/ImageLoadingShimmer"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        app:shimmer_auto_start="true"
-                        app:shimmer_base_alpha="0.7"
-                        app:shimmer_direction="left_to_right"
-                        app:shimmer_duration="1800"
-                        app:shimmer_highlight_alpha="0.6"
-                        app:shimmer_shape="linear"
                         tools:visibility="visible">
                         <!-- View nền để shimmer quét qua -->
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="#818181" />
+                            android:background="@color/image_shimmer_base" />
                     </com.facebook.shimmer.ShimmerFrameLayout>
                 </com.google.android.material.card.MaterialCardView>
-            </com.google.android.material.card.MaterialCardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

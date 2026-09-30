@@ -52,7 +52,7 @@ fun Context.handleBackFragmentFromRight() {
         supportFragmentManager.popBackStack()
     }
 }
-fun Activity.hideNavigation(isBlack: Boolean = true) {
+fun Activity.hideNavigation(isBlack: Boolean = false) {
     window?.setFlags(
         WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
         WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
@@ -110,6 +110,45 @@ fun View.tapAndHold(action: () -> Unit) {
 
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                 handler.removeCallbacks(runnable)
+            }
+        }
+        true
+    }
+}
+
+fun View.tapAndHoldAccelerating(
+    maxMultiplier: Float = 4f,
+    accelerationPerRepeat: Float = 0.15f,
+    action: (Float) -> Unit
+) {
+    val handler = Handler(Looper.getMainLooper())
+    val repeatDelay = 50L
+    var multiplier = 1f
+    val runnable = object : Runnable {
+        override fun run() {
+            if (!isEnabled) {
+                handler.removeCallbacks(this)
+                return
+            }
+            action(multiplier)
+            multiplier = (multiplier + accelerationPerRepeat).coerceAtMost(maxMultiplier)
+            handler.postDelayed(this, repeatDelay)
+        }
+    }
+
+    setOnTouchListener { _, event ->
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                handler.removeCallbacks(runnable)
+                multiplier = 1f
+                if (!isEnabled) return@setOnTouchListener true
+                action(multiplier)
+                handler.postDelayed(runnable, 400L)
+            }
+
+            MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
+                handler.removeCallbacks(runnable)
+                multiplier = 1f
             }
         }
         true

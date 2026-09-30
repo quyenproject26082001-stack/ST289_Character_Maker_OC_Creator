@@ -6,37 +6,52 @@
     android:orientation="vertical"
     android:paddingBottom="@dimen/dp_22">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glTryAgainStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.25" />
 
-    <com.google.android.material.card.MaterialCardView
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/glTryAgainEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/btnTryAgain"
-        android:layout_width="@dimen/dp_156"
-        android:layout_height="@dimen/dp_44"
-        android:scaleType="fitXY"
-        app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="@dimen/dp_12"
-        app:cardElevation="@dimen/dp_0"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:strokeColor="@color/figma_primary"
-        app:strokeWidth="@dimen/dp_2">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/dp_11"
+        android:layout_marginEnd="@dimen/dp_11"
+        android:background="@drawable/bg_btn_bottom"
+        app:layout_constraintDimensionRatio="H,156:44"
+        app:layout_constraintEnd_toEndOf="@id/glTryAgainEnd"
+        app:layout_constraintStart_toStartOf="@id/glTryAgainStart"
+        app:layout_constraintTop_toTopOf="parent">
 
-
-        <!--                        tvDelete-->
         <TextView
             android:id="@+id/tvShare"
-            style="@style/single_marquee"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="@dimen/dp_6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:autoSizeMaxTextSize="@dimen/dp_30"
+            android:autoSizeMinTextSize="@dimen/sp_12"
+            android:autoSizeStepGranularity="@dimen/sp_0_5"
+            android:autoSizeTextType="uniform"
             android:fontFamily="@font/berlin_sans_fb_demi_bold"
             android:gravity="center"
             android:text="@string/try_again"
-            android:textColor="@color/figma_primary"
-            android:textSize="@dimen/sp_16" />
-    </com.google.android.material.card.MaterialCardView>
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent="0.45454545454"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias=".4" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

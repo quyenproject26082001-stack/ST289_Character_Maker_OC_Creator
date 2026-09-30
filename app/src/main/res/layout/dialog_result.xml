@@ -17,18 +17,32 @@
             android:layout_height="@dimen/dp_0"
             android:contentDescription="@null"
             android:scaleType="fitXY"
-            android:src="@drawable/light"
+            tools:src="@drawable/light"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glBtnNextStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glBtnNextEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
+
 
         <!--        layoutMain-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/layoutMain"
-            android:layout_width="@dimen/dp_328"
-            android:layout_height="@dimen/dp_365"
+            android:layout_width="@dimen/dp_292"
+            android:layout_height="@dimen/dp_304"
             android:layout_gravity="center"
             android:layout_marginHorizontal="@dimen/dp_16"
             android:clipChildren="false"
@@ -39,17 +53,13 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-          >
+            app:layout_constraintTop_toTopOf="parent">
 
 
-            <com.google.android.material.card.MaterialCardView
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="#EDEDFF"
-                app:cardCornerRadius="@dimen/dp_16"
-                app:strokeColor="@color/figma_primary"
-                app:strokeWidth="@dimen/dp_1"/>
+                android:background="@drawable/bg_dialog_2" />
 
             <TextView
                 android:id="@+id/tvTitle"
@@ -61,38 +71,47 @@
                 android:fontFamily="@font/berlin_sans_fb_demi_bold"
                 android:gravity="center"
                 android:paddingHorizontal="@dimen/dp_30"
-                app:layout_constraintTop_toTopOf="parent"
                 android:text="@string/cosplay_results"
                 android:textColor="@color/figma_primary"
                 android:textSize="@dimen/sp_24"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
 
 
-            <com.google.android.material.card.MaterialCardView
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="@dimen/_220dp"
+                android:layout_height="@dimen/_220dp"
+                android:background="@drawable/bg_2"
                 android:id="@+id/ctnImg"
-                android:layout_width="@dimen/dp_184"
-                android:layout_height="@dimen/dp_184"
-                android:layout_gravity="center"
-                android:layout_marginHorizontal="@dimen/dp_3"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintVertical_bias=".3"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="@dimen/dp_76"
-                app:cardCornerRadius="@dimen/dp_12"
-                app:cardBackgroundColor="@color/white"
-                app:layout_constraintDimensionRatio="156:152"
-                app:strokeColor="@color/figma_primary"
-                app:strokeWidth="@dimen/dp_2">
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:cardBackgroundColor="#FFAE8C"
+                    app:cardCornerRadius="@dimen/dp_0"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent=".9093023255"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:strokeColor="@color/transparent">
 
 
-                <ImageView
-                    android:id="@+id/btnImage"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:padding="@dimen/dp_0"
-                    android:scaleType="fitCenter" />
-            </com.google.android.material.card.MaterialCardView>
-
+                    <ImageView
+                        android:id="@+id/btnImage"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:padding="@dimen/dp_0"
+                        android:scaleType="fitCenter" />
+                </com.google.android.material.card.MaterialCardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
@@ -112,33 +131,34 @@
 
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ctnProgress"
                 android:layout_width="@dimen/dp_260"
                 android:layout_height="@dimen/dp_20"
                 android:layout_marginTop="@dimen/dp_16"
-                app:layout_constraintTop_toBottomOf="@id/ctnImg"
                 android:background="@drawable/bg_progress_empty_h"
+                android:visibility="gone"
                 app:layout_constraintBottom_toTopOf="@id/tvRef"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:id="@+id/ctnProgress"
-                >
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ctnImg">
+
                 <ImageView
                     android:id="@+id/sbProgressFull"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
-                    android:src="@drawable/bg_progress_full_h"/>
+                    android:src="@drawable/bg_progress_full_h" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <ImageView
+                android:id="@+id/icThumb"
                 android:layout_width="@dimen/dp_32"
                 android:layout_height="@dimen/dp_32"
                 android:src="@drawable/ic_thumb"
-                app:layout_constraintTop_toTopOf="@id/ctnProgress"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="@id/ctnProgress"
                 app:layout_constraintStart_toStartOf="@id/ctnProgress"
-                android:id="@+id/icThumb"
-                />
+                app:layout_constraintTop_toTopOf="@id/ctnProgress" />
 
 
             <TextView
@@ -146,52 +166,54 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginBottom="@dimen/dp_20"
                 android:fontFamily="@font/berlin_sans_fb_demi_bold"
                 android:gravity="center"
                 android:paddingHorizontal="@dimen/dp_10"
-                android:textColor="@color/figma_primary"
-                android:textSize="@dimen/sp_20"
-                app:layout_constraintTop_toBottomOf="@id/ctnProgress"
+                android:textColor="@color/app2"
+                android:textSize="@dimen/sp_24"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginBottom="@dimen/dp_20"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ctnImg"
                 tools:text="100%" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/llButtons"
-            android:layout_width="@dimen/dp_156"
-            android:layout_height="@dimen/dp_44"
-            android:layout_marginHorizontal="@dimen/dp_20"
-            android:layout_marginBottom="@dimen/dp_33"
-            app:strokeWidth="@dimen/dp_2"
-            app:strokeColor="@color/figma_primary"
-            app:cardBackgroundColor="@color/white"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_marginTop="@dimen/dp_28"
-            app:layout_constraintTop_toBottomOf="@id/layoutMain"
-            app:layout_constraintDimensionRatio="156:44"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/btnNext"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/dp_11"
+            android:layout_marginTop="@dimen/dp_54"
+            android:layout_marginEnd="@dimen/dp_11"
+            android:background="@drawable/bg_btn_bottom"
+            app:layout_constraintDimensionRatio="H,156:44"
+            app:layout_constraintEnd_toEndOf="@id/glBtnNextEnd"
+            app:layout_constraintStart_toStartOf="@id/glBtnNextStart"
+            app:layout_constraintTop_toBottomOf="@id/layoutMain">
 
-
-            <!--                    btnYes-->
             <TextView
-                android:id="@+id/btnNext"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:id="@+id/tvNext"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:autoSizeMaxTextSize="@dimen/dp_30"
+                android:autoSizeMinTextSize="@dimen/sp_12"
+                android:autoSizeStepGranularity="@dimen/sp_0_5"
+                android:autoSizeTextType="uniform"
                 android:fontFamily="@font/berlin_sans_fb_demi_bold"
                 android:gravity="center"
-                android:paddingVertical="@dimen/dp_9"
                 android:text="@string/next"
-                android:textColor="@color/figma_primary"
-                android:textSize="@dimen/sp_16" />
-        </com.google.android.material.card.MaterialCardView>
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_percent="0.45454545454"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias=".4" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <ImageView
             android:id="@+id/spin"

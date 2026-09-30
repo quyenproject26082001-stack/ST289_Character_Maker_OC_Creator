@@ -17,7 +17,9 @@ import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import android.widget.PopupWindow
 import androidx.activity.viewModels
 import androidx.core.view.updateLayoutParams
+import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.RecyclerView
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -106,6 +108,9 @@ class MyCreationActivity : WhatsappSharingActivity<ActivityAlbumBinding>() {
         binding.flBottomView.gone()
         binding.lnlBottom.gone()
         binding.lnlBottom.isSelected = true
+        binding.root.viewTreeObserver.addOnGlobalLayoutListener {
+            updateListBottomInsets()
+        }
 
     }
 
@@ -119,14 +124,14 @@ class MyCreationActivity : WhatsappSharingActivity<ActivityAlbumBinding>() {
                                 when (type) {
                                     ValueKey.AVATAR_TYPE -> {
                                         imvTabBackground.setImageResource(R.drawable.bg_avatar_slt)
-                                        setupSelectedTab(tvMyPride)
+                                        setupSelectedTab(tvAvatar)
                                         setupUnselectedTab(tvMyDesign)
                                         showFragment(ValueKey.AVATAR_TYPE)
                                     }
 
                                     ValueKey.MY_DESIGN_TYPE -> {
                                         imvTabBackground.setImageResource(R.drawable.bg_design_slt)
-                                        setupUnselectedTab(tvMyPride)
+                                        setupUnselectedTab(tvAvatar)
                                         setupSelectedTab(tvMyDesign)
                                         showFragment(ValueKey.MY_DESIGN_TYPE)
                                     }
@@ -327,7 +332,7 @@ class MyCreationActivity : WhatsappSharingActivity<ActivityAlbumBinding>() {
 
             btnActionBarLeft.visible()
 
-            val titleMargin = resources.getDimensionPixelSize(R.dimen.dp_120)
+            val titleMargin = resources.getDimensionPixelSize(R.dimen.dp_100)
             tvCenter.updateLayoutParams<ViewGroup.MarginLayoutParams> {
                 width = 0
                 marginStart = titleMargin
@@ -339,19 +344,18 @@ class MyCreationActivity : WhatsappSharingActivity<ActivityAlbumBinding>() {
             // Delete All button - hidden initially, only shown in selection mode
             btnActionBarRight.setImageResource(R.drawable.ic_delete_creation)
             btnActionBarRight.layoutParams = btnActionBarRight.layoutParams.apply {
-                width = resources.getDimensionPixelSize(R.dimen.dp_46)
-                height = resources.getDimensionPixelSize(R.dimen.dp_46)
+                width = resources.getDimensionPixelSize(R.dimen.dp_40)
+                height = resources.getDimensionPixelSize(R.dimen.dp_40)
             }
-            btnActionBarRight.translationX = -resources.getDimension(R.dimen.dp_6)
-            btnActionBarNextRight.translationX = resources.getDimension(R.dimen.dp_6)
-            btnActionBarRight.translationY = resources.getDimension(R.dimen.dp_4)
+            btnActionBarRight.translationX = -resources.getDimension(R.dimen.dp_0)
+            btnActionBarNextRight.translationX = resources.getDimension(R.dimen.dp_0)
             btnActionBarRight.invisible()
         }
     }
 
     override fun initText() {
         binding.apply {
-            tvMyPride.select()
+            tvAvatar.select()
             tvMyDesign.select()
         }
     }
@@ -558,7 +562,6 @@ class MyCreationActivity : WhatsappSharingActivity<ActivityAlbumBinding>() {
         binding.actionBar.apply {
             btnActionBarNextRight.visible()
             btnActionBarNextRight.setImageResource(R.drawable.ic_delete_creation)
-            btnActionBarNextRight.translationY = -resources.getDimension(R.dimen.dp_2)
             btnActionBarRight.visible()
             btnActionBarRight.setImageResource(R.drawable.ic_not_select_all)
             btnActionBarNextRight1.gone()
@@ -577,26 +580,24 @@ class MyCreationActivity : WhatsappSharingActivity<ActivityAlbumBinding>() {
     }
 
     fun refreshBottomVisibility() {
-        val currentlyEmpty = when (viewModel.typeStatus.value) {
+        val hasDisplayItems = when (viewModel.typeStatus.value) {
             ValueKey.AVATAR_TYPE -> myAvatarFragment
                 ?.takeIf { it.isAdded }
-                ?.getAllPaths()
-                ?.isEmpty() ?: true
+                ?.hasDisplayItems() ?: false
             ValueKey.MY_DESIGN_TYPE -> myDesignFragment
                 ?.takeIf { it.isAdded }
-                ?.getAllPaths()
-                ?.isEmpty() ?: true
-            else -> true
+                ?.hasDisplayItems() ?: false
+            else -> false
         }
 
-        if (isInSelectionMode && !currentlyEmpty) {
+        if (isInSelectionMode && hasDisplayItems) {
             binding.flBottomView.visible()
         } else {
             binding.flBottomView.gone()
         }
 
         when {
-            currentlyEmpty -> binding.lnlBottom.gone()
+            !hasDisplayItems -> binding.lnlBottom.gone()
             viewModel.typeStatus.value == ValueKey.AVATAR_TYPE -> {
                 binding.lnlBottom.visible()
                 binding.lnlBottom.translationY = if (isInSelectionMode) {
@@ -609,6 +610,55 @@ class MyCreationActivity : WhatsappSharingActivity<ActivityAlbumBinding>() {
             else -> {
                 binding.lnlBottom.invisible()
                 binding.lnlBottom.translationY = 0f
+            }
+        }
+        binding.root.doOnPreDraw { updateListBottomInsets() }
+    }
+
+    private fun updateListBottomInsets() {
+        val location = IntArray(2)
+        val bottomTop = listOf(binding.lnlBottom, binding.flBottomView)
+            .filter { it.visibility == View.VISIBLE && it.height > 0 }
+            .minOfOrNull { bottom ->
+                bottom.getLocationInWindow(location)
+                location[1]
+            }
+        val gap = resources.getDimensionPixelSize(R.dimen.dp_12)
+        val lists = listOfNotNull(
+            myAvatarFragment?.view?.findViewById<RecyclerView>(R.id.rcvMyAvatar),
+            myDesignFragment?.view?.findViewById<RecyclerView>(R.id.rcvMyDesign)
+        )
+        lists.forEach { recyclerView ->
+            if (recyclerView.height == 0) return@forEach
+            val parent = recyclerView.parent as? ViewGroup ?: return@forEach
+            val params = recyclerView.layoutParams as? ViewGroup.MarginLayoutParams
+                ?: return@forEach
+            // Measure the available bottom before applying a margin, so repeated
+            // layout passes cannot count the margin twice.
+            parent.getLocationInWindow(location)
+            val availableBottom = location[1] + parent.height - parent.paddingBottom
+            val overlap = bottomTop?.let {
+                (availableBottom - it).coerceAtLeast(0)
+            } ?: 0
+            val hasBottomOverlap = overlap > 0
+            val marginBottom = if (!isInSelectionMode && hasBottomOverlap) overlap + gap else 0
+            val paddingBottom = when {
+                isInSelectionMode -> overlap + gap
+                hasBottomOverlap -> 0
+                else -> gap
+            }
+            if (params.bottomMargin != marginBottom) {
+                recyclerView.updateLayoutParams<ViewGroup.MarginLayoutParams> {
+                    bottomMargin = marginBottom
+                }
+            }
+            if (recyclerView.paddingBottom != paddingBottom) {
+                recyclerView.setPadding(
+                    recyclerView.paddingLeft,
+                    recyclerView.paddingTop,
+                    recyclerView.paddingRight,
+                    paddingBottom
+                )
             }
         }
     }
@@ -657,13 +707,13 @@ class MyCreationActivity : WhatsappSharingActivity<ActivityAlbumBinding>() {
     }
 
     private fun setupSelectedTab(textView: com.therian.oc.aaabb.core.custom.text.OuterStrokeTextView) {
-        textView.setTextColor(Color.parseColor("#38306B"))
+        textView.setTextColor(Color.parseColor("#FFFFFF"))
         //textView.setShadowLayer(2f, 0f, 2f, Color.WHITE)
         //textView.setupSelectedTab()
     }
 
     private fun setupUnselectedTab(textView: com.therian.oc.aaabb.core.custom.text.OuterStrokeTextView) {
-        textView.setTextColor(Color.parseColor("#38306B"))
+        textView.setTextColor(Color.parseColor("#FFFFFF"))
         //textView.setupUnselectedTab()
     }
 

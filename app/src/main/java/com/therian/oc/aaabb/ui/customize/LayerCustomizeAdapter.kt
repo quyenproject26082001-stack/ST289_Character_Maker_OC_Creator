@@ -1,14 +1,10 @@
 package com.therian.oc.aaabb.ui.customize
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.bumptech.glide.load.DataSource
-import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestListener
-import com.bumptech.glide.request.target.Target
+import com.bumptech.glide.request.RequestOptions
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -17,6 +13,7 @@ import com.therian.oc.aaabb.core.extensions.gone
 import com.therian.oc.aaabb.core.extensions.tap
 import com.therian.oc.aaabb.core.extensions.visible
 import com.therian.oc.aaabb.core.utils.key.AssetsKey
+import com.therian.oc.aaabb.core.extensions.loadWithXmlShimmer
 import com.therian.oc.aaabb.data.model.custom.ItemNavCustomModel
 import com.therian.oc.aaabb.databinding.ItemCustomizeBinding
 import com.bumptech.glide.Glide
@@ -64,6 +61,7 @@ class LayerCustomizeAdapter(val context: Context) : ListAdapter<ItemNavCustomMod
 
                 when (item.path) {
                     AssetsKey.NONE_LAYER -> {
+                        Glide.with(root).clear(imvImage)
                         btnNone.visible()
                         btnRandom.gone()
                         imvImage.gone()
@@ -71,6 +69,7 @@ class LayerCustomizeAdapter(val context: Context) : ListAdapter<ItemNavCustomMod
                         sflShimmer.gone()
                     }
                     AssetsKey.RANDOM_LAYER -> {
+                        Glide.with(root).clear(imvImage)
                         btnNone.gone()
                         btnRandom.visible()
                         imvImage.gone()
@@ -81,22 +80,11 @@ class LayerCustomizeAdapter(val context: Context) : ListAdapter<ItemNavCustomMod
                         btnNone.gone()
                         imvImage.visible()
                         btnRandom.gone()
-                        sflShimmer.visible()
-                        sflShimmer.startShimmer()
-                        Glide.with(root)
-                            .load(item.thumb.ifEmpty { item.path })
-                            .transform(RoundedCorners(cornerRadiusPx))
-                            .listener(object : RequestListener<Drawable> {
-                                override fun onResourceReady(r: Drawable, m: Any, t: Target<Drawable?>?, d: DataSource, f: Boolean): Boolean {
-                                    sflShimmer.stopShimmer()
-                                    sflShimmer.gone()
-                                    return false
-                                }
-                                override fun onLoadFailed(e: GlideException?, m: Any?, t: Target<Drawable?>, f: Boolean): Boolean {
-                                    return false
-                                }
-                            })
-                            .into(imvImage)
+                        imvImage.loadWithXmlShimmer(
+                            item.thumb.ifEmpty { item.path },
+                            sflShimmer,
+                            RequestOptions().transform(RoundedCorners(cornerRadiusPx))
+                        )
                     }
                 }
 
@@ -111,7 +99,8 @@ class LayerCustomizeAdapter(val context: Context) : ListAdapter<ItemNavCustomMod
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CustomizeViewHolder {
-        return CustomizeViewHolder(ItemCustomizeBinding.inflate(LayoutInflater.from(parent.context), parent, false))
+        val binding = ItemCustomizeBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return CustomizeViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: CustomizeViewHolder, position: Int) {

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DEDAFF"
+    android:background="#FFE8C2"
     android:clipChildren="false"
     android:descendantFocusability="beforeDescendants"
     android:focusable="true"
@@ -100,9 +100,8 @@
         android:id="@+id/flFunction"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_0"
-        android:layout_marginTop="@dimen/dp_20"
         android:clipChildren="false"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/lnlBottom"
         app:layout_constraintTop_toBottomOf="@id/gl">
 
         <ImageView
@@ -125,12 +124,14 @@
             android:id="@+id/backgroundTab"
             layout="@layout/layout_add_character_background"
             android:layout_width="match_parent"
+            tools:visibility="gone"
             android:layout_height="match_parent" />
 
         <include
             android:id="@+id/stickerTab"
             layout="@layout/layout_add_character_sticker"
             android:layout_width="match_parent"
+            tools:visibility="gone"
             android:layout_height="match_parent" />
 
         <include
@@ -142,7 +143,6 @@
         <include
             android:id="@+id/textTab"
             tools:visibility="visible"
-            android:layout_marginTop="@dimen/dp_22"
             layout="@layout/layout_add_character_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -159,7 +159,7 @@
         android:layout_height="@dimen/dp_56"
         android:layout_marginHorizontal="@dimen/dp_0"
         android:layout_marginBottom="@dimen/dp_0"
-        android:background="#667FAA"
+        android:background="#FFBF4A"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -169,10 +169,10 @@
         <!--        btnBackground-->
         <ImageView
             android:id="@+id/btnBackground"
-            android:layout_width="@dimen/dp_48"
-            android:layout_height="@dimen/dp_48"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
             android:layout_marginHorizontal="@dimen/dp_12"
-            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintHorizontal_chainStyle="spread"
             android:src="@drawable/ic_bg_slt"
             app:layout_constraintEnd_toStartOf="@id/btnSticker"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -182,8 +182,8 @@
         <!--        btnSticker-->
         <ImageView
             android:id="@+id/btnSticker"
-            android:layout_width="@dimen/dp_40"
-            android:layout_height="@dimen/dp_40"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
             android:layout_marginHorizontal="@dimen/dp_12"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_sticker"
@@ -195,8 +195,8 @@
         <!--        btnSpeech-->
         <ImageView
             android:id="@+id/btnSpeech"
-            android:layout_width="@dimen/dp_40"
-            android:layout_height="@dimen/dp_40"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
             android:layout_marginHorizontal="@dimen/dp_12"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_speech"
@@ -208,8 +208,8 @@
         <!--        btnText-->
         <ImageView
             android:id="@+id/btnText"
-            android:layout_width="@dimen/dp_40"
-            android:layout_height="@dimen/dp_40"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
             android:layout_marginHorizontal="@dimen/dp_12"
             app:layout_constraintStart_toEndOf="@id/btnSpeech"
             android:background="?attr/selectableItemBackgroundBorderless"

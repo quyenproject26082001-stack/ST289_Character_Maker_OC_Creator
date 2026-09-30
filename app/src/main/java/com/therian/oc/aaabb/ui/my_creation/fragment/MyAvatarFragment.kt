@@ -295,6 +295,8 @@ class MyAvatarFragment : BaseFragment<FragmentMyAvatarBinding>() {
         // No need to notify here - isSelectMode setter already handles it
     }
 
+    fun hasDisplayItems(): Boolean = viewModel.myAvatarList.value.isNotEmpty()
+
     fun getAllPaths(): ArrayList<String> {
         return viewModel.myAvatarList.value
             .filterNot { it.isFake }

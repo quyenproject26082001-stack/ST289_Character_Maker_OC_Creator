@@ -17,7 +17,7 @@ class ColorLayerCustomizeAdapter(val context: Context) :
     override fun onBind(binding: ItemColorBinding, item: ItemColorModel, position: Int) {
         binding.apply {
             val colorSize = root.resources.getDimensionPixelSize(
-                if (item.isSelected) R.dimen.dp_28 else R.dimen.dp_24
+                if (item.isSelected) R.dimen.dp_24 else R.dimen.dp_24
             )
             imvImage.layoutParams = imvImage.layoutParams.apply {
                 width = colorSize

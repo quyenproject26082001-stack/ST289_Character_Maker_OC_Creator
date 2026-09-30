@@ -4,33 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/dp_4"
+    android:layout_margin="@dimen/dp_3"
     android:clipChildren="false"
     android:clipToPadding="false">
 
-    <FrameLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/root"
         android:layout_width="@dimen/dp_0"
         android:layout_height="@dimen/dp_0"
         android:clipChildren="false"
+        android:background="@drawable/bg_4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.card.MaterialCardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="@dimen/dp_2"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="@dimen/dp_12"
-            app:strokeWidth="@dimen/dp_2"
-            app:strokeColor="@color/figma_primary">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintHeight_percent="0.875"
+            app:layout_constraintVertical_bias="0.4"            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:cardCornerRadius="@dimen/dp_0"
+            app:strokeColor="@color/transparent"
+            android:id="@+id/ctnImg"
+            >
 
 
             <ImageView
                 android:id="@+id/imvImage"
+                android:background="#FFAE8C"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
@@ -46,24 +53,27 @@
             <!--btnDelete-->
             <ImageView
                 android:id="@+id/btnDelete"
-                android:layout_width="@dimen/dp_32"
-                android:layout_height="@dimen/dp_32"
-                android:layout_gravity="end|top"
-                android:layout_margin="@dimen/dp_4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
                 android:src="@drawable/ic_delete_item" />
 
             <!--btnSelect-->
             <ImageView
                 android:id="@+id/btnSelect"
-                android:layout_width="@dimen/dp_32"
-                android:layout_height="@dimen/dp_32"
-                android:layout_gravity="end|top"
-                android:layout_margin="@dimen/dp_4"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHeight_percent="0.2"
+                app:layout_constraintDimensionRatio="1:1"
                 android:src="@drawable/ic_not_select" />
 
-        </com.google.android.material.card.MaterialCardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-    </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

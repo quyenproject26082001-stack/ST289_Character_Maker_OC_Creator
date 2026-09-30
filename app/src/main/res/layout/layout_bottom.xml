@@ -9,14 +9,20 @@
     tool:background="@color/dark"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/lnlShareButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glCenterButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
 
 
 
@@ -25,25 +31,27 @@
         <!--            btnRight-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/btnRight"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginEnd="@dimen/dp_4"
             android:layout_marginStart="@dimen/dp_20"
-            android:layout_weight="1"
-            >
+            app:layout_constraintDimensionRatio="H,156:44"
+            app:layout_constraintEnd_toEndOf="@id/glCenterButtons"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="@dimen/dp_0"
-                android:layout_height="@dimen/dp_44"
+                android:layout_height="@dimen/dp_0"
                 android:scaleType="fitXY"
                 app:cardElevation="@dimen/dp_0"
                 app:cardBackgroundColor="@color/transparent"
 
                 app:strokeColor="@color/transparent"
-                app:layout_constraintBottom_toBottomOf="@+id/lnlInLeft"
-                app:layout_constraintEnd_toEndOf="@+id/lnlInLeft"
-                app:layout_constraintStart_toStartOf="@+id/lnlInLeft"
-                app:layout_constraintTop_toTopOf="@+id/lnlInLeft">
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/imgBgBtnRight"
@@ -54,59 +62,77 @@
             </com.google.android.material.card.MaterialCardView>
 
             <!--                        lnlInLeft-->
-            <androidx.appcompat.widget.LinearLayoutCompat
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/lnlInLeft"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingHorizontal="@dimen/dp_10"
-                android:paddingVertical="@dimen/dp_8"
+                android:layout_height="match_parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:layout_width="@dimen/dp_20"
-                    android:layout_height="@dimen/dp_20"
+                    android:id="@+id/icWhatsappBottom"
+                    android:layout_width="@dimen/dp_0"
+                    android:layout_height="@dimen/dp_0"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:src="@drawable/ic_whatsapp"
                     android:visibility="visible"
-                    android:src="@drawable/ic_whatsapp" />
+                    app:layout_constraintVertical_bias=".4"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintHeight_percent="0.45454545454"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <!--                        tvWhatsapp-->
                 <TextView
                     android:id="@+id/tvWhatsapp"
                     style="@style/single_marquee"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/dp_6"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/dp_6"
+                    android:layout_marginEnd="@dimen/dp_6"
+                    android:autoSizeMaxTextSize="@dimen/dp_30"
+                    android:autoSizeMinTextSize="@dimen/sp_12"
+                    android:autoSizeStepGranularity="@dimen/sp_0_5"
+                    android:autoSizeTextType="uniform"
                     android:fontFamily="@font/berlin_sans_fb_demi_bold"
+                    android:gravity="center"
                     android:text="@string/add_to_whatsapp"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/sp_16" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.45454545454"
+                    app:layout_constraintStart_toEndOf="@id/icWhatsappBottom"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias=".4" />
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         <!--            btnLeft-->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/btnLeft"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
             android:layout_marginEnd="@dimen/dp_20"
             android:layout_marginStart="@dimen/dp_4"
-            android:layout_weight="1">
+            app:layout_constraintDimensionRatio="H,156:44"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/glCenterButtons"
+            app:layout_constraintTop_toTopOf="parent">
 
             <FrameLayout
                 android:layout_width="@dimen/dp_0"
-                android:layout_height="@dimen/dp_44"
+                android:layout_height="@dimen/dp_0"
                 android:scaleType="fitXY"
                 app:strokeColor="@color/transparent"
                 app:cardElevation="@dimen/dp_0"
                 app:cardBackgroundColor="@color/transparent"
-                app:layout_constraintBottom_toBottomOf="@+id/lnlInRight"
-                app:layout_constraintEnd_toEndOf="@+id/lnlInRight"
-                app:layout_constraintStart_toStartOf="@+id/lnlInRight"
-                app:layout_constraintTop_toTopOf="@+id/lnlInRight">
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
                     android:id="@+id/imgBgBtnLeft"
@@ -117,40 +143,56 @@
             </FrameLayout>
 
             <!--                        lnlInRight-->
-            <androidx.appcompat.widget.LinearLayoutCompat
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/lnlInRight"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingHorizontal="@dimen/dp_10"
-                android:paddingVertical="@dimen/dp_8"
+                android:layout_height="match_parent"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
+                    android:id="@+id/icTelegramBottom"
                     android:layout_width="@dimen/dp_20"
                     android:layout_height="@dimen/dp_20"
+                    android:layout_marginStart="@dimen/dp_10"
+                    android:src="@drawable/ic_telegram"
+                    app:layout_constraintVertical_bias=".4"
+                    app:layout_constraintDimensionRatio="1:1"
+                    app:layout_constraintHeight_percent="0.45454545454"
+
                     android:visibility="visible"
-                    android:src="@drawable/ic_telegram" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <!--                        tvTelegram-->
                 <TextView
                     android:id="@+id/tvTelegram"
                     style="@style/single_marquee"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/dp_6"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/dp_6"
+                    android:layout_marginEnd="@dimen/dp_6"
+                    android:autoSizeMaxTextSize="@dimen/dp_30"
+                    android:autoSizeMinTextSize="@dimen/sp_12"
+                    android:autoSizeStepGranularity="@dimen/sp_0_5"
+                    android:autoSizeTextType="uniform"
                     android:fontFamily="@font/berlin_sans_fb_demi_bold"
+                    android:gravity="center"
                     android:text="@string/add_to_telegram"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/sp_16" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_percent="0.45454545454"
+                    app:layout_constraintStart_toEndOf="@id/icTelegramBottom"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias=".4" />
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
   
 

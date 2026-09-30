@@ -1,20 +1,16 @@
 package com.therian.oc.aaabb.ui.add_character.adapter
 
-import android.content.Context
 import android.graphics.Color
-import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.therian.oc.aaabb.core.base.BaseAdapter
-import com.therian.oc.aaabb.R
-import com.therian.oc.aaabb.core.utils.DataLocal
+import com.therian.oc.aaabb.core.extensions.loadWithXmlShimmer
 import com.therian.oc.aaabb.core.extensions.gone
 import com.therian.oc.aaabb.core.extensions.tap
 import com.therian.oc.aaabb.core.extensions.visible
 import com.therian.oc.aaabb.data.model.SelectedModel
 import com.therian.oc.aaabb.databinding.ItemBackgroundImageBinding
-import com.facebook.shimmer.ShimmerDrawable
 
 class BackgroundImageAdapter :
     BaseAdapter<SelectedModel, ItemBackgroundImageBinding>(ItemBackgroundImageBinding::inflate) {
@@ -26,7 +22,7 @@ class BackgroundImageAdapter :
         binding.apply {
             tvAddImg.isSelected=true
             if (item.isSelected) {
-                containerCard.setStrokeColor(Color.parseColor("#39465A"))
+                containerCard.setStrokeColor(Color.parseColor("#DC3C01"))
             } else {
                 containerCard.setStrokeColor(Color.TRANSPARENT)
             }
@@ -34,34 +30,33 @@ class BackgroundImageAdapter :
             lnlAddItem.gone()
             btnNone.gone()
             imvImage.gone()
+            sflShimmer.stopShimmer()
+            sflShimmer.gone()
 
             when (position) {
                 ADD_IMAGE_POSITION -> {
+                    Glide.with(root).clear(imvImage)
                     lnlAddItem.visible()
                     lnlAddItem.tap(800) { onAddImageClick.invoke() }
                 }
 
                 NONE_ITEM_POSITION -> {
+                    Glide.with(root).clear(imvImage)
                     btnNone.visible()
                     btnNone.tap { onBackgroundImageClick.invoke(item.path, position) }
                 }
 
                 else -> {
                     imvImage.visible()
-                    val cornerRadiusPx =
-                        root.resources.getDimensionPixelSize(R.dimen.dp_8)
-                    val shimmerDrawable = ShimmerDrawable().apply {
-                        setShimmer(DataLocal.shimmer)
-                    }
-                    Glide.with(root)
-                        .load(item.path)
-                        .placeholder(shimmerDrawable)
-                        .error(shimmerDrawable)
-                        .override(256, 256)
-                        .encodeQuality(60)
-                        .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-                        .transform(RoundedCorners(cornerRadiusPx))
-                        .into(imvImage)
+                    imvImage.loadWithXmlShimmer(
+                        item.path,
+                        sflShimmer,
+                        RequestOptions()
+                            .override(256, 256)
+                            .encodeQuality(60)
+                            .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+                            .centerCrop()
+                    )
                     imvImage.tap { onBackgroundImageClick.invoke(item.path, position) }
                 }
             }

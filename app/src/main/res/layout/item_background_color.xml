@@ -7,7 +7,7 @@
     <FrameLayout
         android:layout_width="@dimen/dp_0"
         android:layout_height="@dimen/dp_0"
-        android:layout_margin="@dimen/dp_4"
+        android:layout_margin="@dimen/dp_3_5"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,9 +25,9 @@
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:cardCornerRadius="@dimen/dp_4"
+            app:cardCornerRadius="0dp"
             app:cardBackgroundColor="@color/transparent"
-            app:strokeColor="@color/figma_primary"
+            app:strokeColor="@color/app2"
             app:strokeWidth="@dimen/dp_3"
             android:id="@+id/cardCtn"
             >
@@ -37,6 +37,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/sflShimmer"
+                style="@style/ImageLoadingShimmer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/image_shimmer_base" />
+            </com.facebook.shimmer.ShimmerFrameLayout>
         </com.google.android.material.card.MaterialCardView>
     </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

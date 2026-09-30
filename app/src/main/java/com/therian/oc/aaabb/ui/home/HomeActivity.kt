@@ -92,10 +92,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding>() {
 
     private fun updateText() {
         binding.apply {
-            tv1.text = strings(R.string.play)
-            tv2.text = strings(R.string.cosplay_therian)
-            tv3.text = strings(R.string.therian_random)
-            tv4.text = strings(R.string.creation)
+            tv1.text = strings(R.string.character_maker_)
+            tv2.text = strings(R.string.challenge_character)
+            tv3.text = strings(R.string.character_random)
+            tv4.text = strings(R.string.my_creation)
         }
     }
 

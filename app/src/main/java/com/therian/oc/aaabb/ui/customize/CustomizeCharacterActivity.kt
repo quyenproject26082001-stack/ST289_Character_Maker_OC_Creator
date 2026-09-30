@@ -10,6 +10,7 @@ import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.lvt.ads.util.Admob
 import com.therian.oc.aaabb.R
+import com.therian.oc.aaabb.core.custom.background.ColorListShadowDrawable
 import com.therian.oc.aaabb.core.base.BaseActivity
 import com.therian.oc.aaabb.core.extensions.checkInternet
 import com.therian.oc.aaabb.core.extensions.dLog
@@ -34,6 +35,7 @@ import com.therian.oc.aaabb.dialog.YesNoDialog
 import com.therian.oc.aaabb.ui.home.DataViewModel
 import com.therian.oc.aaabb.core.extensions.tap
 import com.therian.oc.aaabb.core.extensions.tapAndHold
+import com.therian.oc.aaabb.core.extensions.tapAndHoldAccelerating
 import com.therian.oc.aaabb.core.helper.MediaHelper
 import com.therian.oc.aaabb.data.model.custom.SuggestionModel
 import com.therian.oc.aaabb.ui.add_character.AddCharacterActivity
@@ -66,7 +68,9 @@ class CustomizeCharacterActivity : BaseActivity<ActivityCustomizeBinding>() {
     private val dataViewModel: DataViewModel by viewModels()
     val colorLayerCustomizeAdapter by lazy { ColorLayerCustomizeAdapter(this) }
     val layerCustomizeAdapter by lazy { LayerCustomizeAdapter(this) }
-    val bottomNavigationCustomizeAdapter by lazy { BottomNavigationCustomizeAdapter(this) }
+    val bottomNavigationCustomizeAdapter by lazy {
+        BottomNavigationCustomizeAdapter(this, useSouthParkStyle = true)
+    }
     val hideList: ArrayList<View> by lazy {
         arrayListOf(
             binding.btnRandom,
@@ -81,6 +85,7 @@ class CustomizeCharacterActivity : BaseActivity<ActivityCustomizeBinding>() {
     }
 
     override fun initView() {
+        //binding.relativeLayout.background = ColorListShadowDrawable(this)
         initRcv()
         lifecycleScope.launch { showLoading() }
         dataViewModel.ensureData(this)
@@ -194,10 +199,18 @@ class CustomizeCharacterActivity : BaseActivity<ActivityCustomizeBinding>() {
                 }
             }
 
-            btnMoveLeft.tapAndHold { moveSelectedLayer(deltaX = -MOVE_STEP) }
-            btnMoveRight.tapAndHold { moveSelectedLayer(deltaX = MOVE_STEP) }
-            btnMoveUp.tapAndHold { moveSelectedLayer(deltaY = -MOVE_STEP) }
-            btnMoveDown.tapAndHold { moveSelectedLayer(deltaY = MOVE_STEP) }
+            btnMoveLeft.tapAndHoldAccelerating { multiplier ->
+                moveSelectedLayer(deltaX = -MOVE_STEP * multiplier)
+            }
+            btnMoveRight.tapAndHoldAccelerating { multiplier ->
+                moveSelectedLayer(deltaX = MOVE_STEP * multiplier)
+            }
+            btnMoveUp.tapAndHoldAccelerating { multiplier ->
+                moveSelectedLayer(deltaY = -MOVE_STEP * multiplier)
+            }
+            btnMoveDown.tapAndHoldAccelerating { multiplier ->
+                moveSelectedLayer(deltaY = MOVE_STEP * multiplier)
+            }
             rotateToLeft.tapAndHold { rotateSelectedLayer(-ROTATE_STEP) }
             rotateToRight.tapAndHold { rotateSelectedLayer(ROTATE_STEP) }
             scaleUp.tapAndHold { scaleSelectedLayer(SCALE_STEP) }

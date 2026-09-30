@@ -11,13 +11,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/dp_40"
-            android:background="@drawable/bg_dialog_rate">
+            android:background="@drawable/bg_dialog_2">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imvAvtRate"
                 android:layout_width="@dimen/dp_72"
                 android:layout_height="@dimen/dp_72"
-                android:layout_marginTop="@dimen/dp_28"
+                android:layout_marginTop="@dimen/dp_13"
                 android:src="@drawable/ic_rate_zero"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -32,7 +32,7 @@
                 android:freezesText="true"
                 android:gravity="center"
                 android:text="@string/zero_star_title"
-                android:textColor="#4A3F7F"
+                android:textColor="#DC3C01"
                 android:textSize="@dimen/sp_18"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -92,7 +92,7 @@
                     android:layout_height="@dimen/dp_45"
                     android:layout_marginTop="@dimen/dp_20"
                     app:cardCornerRadius="@dimen/dp_30"
-                    app:cardBackgroundColor="#4A3F7F"
+                    app:cardBackgroundColor="#DC3C01"
                     app:cardElevation="@dimen/dp_0">
 
                     <TextView
@@ -117,7 +117,7 @@
                     android:text="@string/exit"
                     android:layout_marginTop="@dimen/dp_0"
                     android:textAllCaps="false"
-                    android:textColor="@color/figma_primary"
+                    android:textColor="@color/app2"
                     android:textSize="@dimen/sp_16" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
